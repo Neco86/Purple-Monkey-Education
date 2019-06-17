@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter,Route } from 'react-router-dom'
 import { GlobalStyle } from './style.js'
 import { GlobalIconStyle } from './statics/iconfont/iconfont.js'
+import Register from './pages/register'
 
 function App() {
   return (
@@ -11,9 +12,8 @@ function App() {
         <GlobalStyle/>
         <GlobalIconStyle/>
         <BrowserRouter>
-            {/*<Route path='/' exact component={Enter}></Route>*/}
+            {<Route path='/' exact component={Register}></Route>}
         </BrowserRouter>
-        xxx
     </Provider>
   );
 }
