@@ -1,28 +1,22 @@
 import React,{ PureComponent } from 'react'
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-// import { actionCreators } from './store'
-
+import { BgWrapper,Button1 } from '../../common/style'
+import Img from '../../statics/logo.png'
+import { Wrapper } from './style'
 class Entry extends PureComponent{
 render(){
+        const { history } = this.props;
          return(
-            <div>
-                Entry
-            </div>
+            <BgWrapper>
+                <Wrapper>
+                    <img src={Img} alt=""/>
+                    <Button1 style={{margin:"30px auto"}} onClick={()=>{history.push('/register')}}>注册</Button1>
+                    <Button1 style={{margin:"0 auto"}} onClick={()=>{history.push('/login')}}>登录</Button1>
+                </Wrapper>
+            </BgWrapper>
         )
    
 }
 }
-const mapDispatchToProps=(dispatch)=>{
-            return {
-                addClassBack(history){
-                    // dispatch(actionCreators.addClassBack())
-                }
-            }
-        }
-const mapStateToProps=(state)=>{
-    return {
-        // tabBarPage:state.getIn(['home','tabBarPage']),
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Entry));
+
+export default withRouter(Entry);

@@ -5,6 +5,7 @@ import { BrowserRouter,Route } from 'react-router-dom'
 import { GlobalStyle } from './style.js'
 import { GlobalIconStyle } from './statics/iconfont/iconfont.js'
 import Entry from './pages/entry'
+import Register from './pages/register'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <GlobalIconStyle/>
         <BrowserRouter>
             {<Route path='/' exact component={Entry}></Route>}
+            {<Route path='/register' exact component={Register}></Route>}
         </BrowserRouter>
     </Provider>
   );
