@@ -2,6 +2,7 @@ import {  put,takeEvery } from 'redux-saga/effects'
 import axios from 'axios'
 import { actionTypes as registerActionTypes,actionCreators as registerActionCreators }   from '../pages/register/store'
 import { actionTypes as groupRegisterActionTypes,actionCreators as groupRegisterActionCreators }   from '../pages/groupRegister/store'
+import { actionTypes as teacherRegisterActionTypes,actionCreators as teacherRegisterActionCreators }   from '../pages/teacherRegister/store'
 
 
 function* getRegisterUserName(param) {
@@ -79,12 +80,57 @@ function* groupRegisterFinish(data) {
       console.log('json请求失败');
   }
 }
+function* getTeacherRegisterPID(param) {
+  try {
+    const res=yield axios.get('/api/teacherID', {
+            params:{
+                username : param.data
+            }
+        });
+    const data=res.data
+    const action=teacherRegisterActionCreators.setPersonIDBottom(data.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* getTeacherRegisterResult(data) {
+  try {
+    const param=data.data;
+    const params={
+        username : param.username,//用户名
+        password:param.password,//密码
+        phoneNumber:param.phoneNumber,//手机号
+        select:param.select,//账号类型
+        name:param.name,//性名
+        sex:param.sex,//性别
+        age:param.age,//年龄
+        personID:param.personID,//身份证号
+        chooseEduArea:param.chooseEduArea,//从教领域
+        teacheAge:param.teacheAge,//从教年限
+        ageL:param.ageL,//适龄下限
+        ageH:param.ageH,//适龄上线
+        tel:param.tel,//联系方式
+        intro:param.intro//简介
+    }
+    const res=yield axios.post('/api/teacherRegisterFinish', {
+            params:params
+        });
+    const resData=res.data
+    const action=teacherRegisterActionCreators.teacherRegisterResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
   yield takeEvery(groupRegisterActionTypes.CHANGEGROUPNAME, getGroupNameBottom);
   yield takeEvery(groupRegisterActionTypes.GETPROVINCE, getProvince);
   yield takeEvery(groupRegisterActionTypes.GROUPREGISTERFINISH, groupRegisterFinish);
+  yield takeEvery(teacherRegisterActionTypes.CHANGEPERSONID, getTeacherRegisterPID);
+  yield takeEvery(teacherRegisterActionTypes.TEACHERREGISTERFINISH, getTeacherRegisterResult);
 }
 
 export default mySaga;

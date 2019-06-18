@@ -67,3 +67,14 @@ Mock.mock(RegExp("/api/groupRegisterFinish"),'post',(post)=>{
     "data":true//true注册成功
   }
 })
+Mock.mock(RegExp("/api/teacherID.*"),'get',{
+    "succ":true,
+    "data":false//true身份证已经注册
+})
+Mock.mock(RegExp("/api/teacherRegisterFinish"),'post',(post)=>{
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true注册成功
+  }
+})
