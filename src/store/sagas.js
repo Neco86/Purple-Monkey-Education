@@ -4,6 +4,7 @@ import { actionTypes as registerActionTypes,actionCreators as registerActionCrea
 import { actionTypes as groupRegisterActionTypes,actionCreators as groupRegisterActionCreators }   from '../pages/groupRegister/store'
 import { actionTypes as teacherRegisterActionTypes,actionCreators as teacherRegisterActionCreators }   from '../pages/teacherRegister/store'
 import { actionTypes as studentRegisterActionTypes,actionCreators as studentRegisterActionCreators }   from '../pages/studentRegister/store'
+import { actionTypes as loginActionTypes,actionCreators as loginActionCreators }   from '../pages/login/store'
 
 
 function* getRegisterUserName(param) {
@@ -148,6 +149,22 @@ function* getStudentRegisterResult(data) {
       console.log('json请求失败');
   }
 }
+function* getLogin(param) {
+  try {
+    const params={
+        username : param.username,//用户名
+        password:param.password,//密码
+    }
+    const res=yield axios.post('/api/login', {
+            params:params
+        });
+    const resData=res.data
+    const action=loginActionCreators.loginResult(resData)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -157,6 +174,7 @@ function* mySaga() {
   yield takeEvery(teacherRegisterActionTypes.CHANGEPERSONID, getTeacherRegisterPID);
   yield takeEvery(teacherRegisterActionTypes.TEACHERREGISTERFINISH, getTeacherRegisterResult);
   yield takeEvery(studentRegisterActionTypes.STUDENTREGISTERFINISH, getStudentRegisterResult);
+  yield takeEvery(loginActionTypes.LOGIN, getLogin);
 }
 
 export default mySaga;

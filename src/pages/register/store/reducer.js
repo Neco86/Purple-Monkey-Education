@@ -8,7 +8,7 @@ const defaultState=fromJS({
     phoneNumber:"",
     select:"",
     next:false,
-    pageNumber:2//1通用注册页面//2学生家长//3个人教师//4教育机构
+    pageNumber:1//1通用注册页面//2学生家长//3个人教师//4教育机构
 })
 const getChange=(state)=>{
     return (state.get("username")!==""&&!state.get("usernameBottom")&&
