@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import NavBar from '../../common/components/NavBar'
 import { Wrapper } from '../../common/style'
-import { actionCreators } from '../register/store'
+import { actionCreators as registerActionCreators } from '../register/store'
 
 class StudentRegister extends PureComponent{
 render(){
@@ -20,7 +20,7 @@ render(){
 const mapDispatchToProps=(dispatch)=>{
             return {
                 backRegister(){
-                    dispatch(actionCreators.backRegister())
+                    dispatch(registerActionCreators.backRegister())
                 }
             }
         }

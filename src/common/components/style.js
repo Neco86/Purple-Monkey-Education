@@ -6,6 +6,8 @@ export const NavBarWrapper = styled.div`
    color:white;
    line-height:45px;
    overflow:hidden;
+   position:fixed;
+   z-index:99;
    div{
     width:75px;
    }
@@ -101,5 +103,81 @@ export const SelectWrapper = styled.div`
     top:36px;
     left:0;
     color:#d9001b;
+  }
+`
+export const PickerWrapper = styled.div`
+  height:150px;
+  width:100%;
+  display:flex;
+  overflow:hidden;
+  padding:0 15px;
+  box-sizing:border-box;
+  margin-bottom:20px;
+  .left{
+    width:5rem;
+    line-height:150px;
+  }
+  .right{
+    flex:1;
+    .am-picker{
+      height:150px;
+    }
+  }
+`
+export const TextAreaWrapper = styled.div`
+  padding:0 15px;
+  box-sizing:border-box;
+  height:120px;
+  display:flex;
+  .left{
+    width:5rem;
+    line-height:35px;
+  }
+  .right{
+    flex:1;
+    textarea{
+      box-sizing:border-box;
+      width:100%;
+      height:105px;
+      border:none;
+      outline:none;
+      padding-left:10px;
+      font-size:16px;
+      border-radius:5px;
+      background-color:#f9f9f9;
+    }
+  }
+`
+export const AlertBg = styled.div`
+  background-color:black;
+  opacity:0.3;
+  width:100%;
+  height:100%;
+`
+export const AlertWrapper = styled.div`
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:998;
+  .alert{
+    position:fixed;
+    width:150px;
+    height:100px;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-75px; 
+    background-color:white;
+    z-index:999;
+    border-radius:10px;
+    text-align:center;
+    box-sizing:border-box;
+    padding:10px;
+  }
+  .iconfont{
+    display:inline-block;
+    margin-top:8px;
   }
 `

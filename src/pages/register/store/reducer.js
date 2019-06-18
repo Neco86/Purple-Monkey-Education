@@ -8,10 +8,11 @@ const defaultState=fromJS({
     phoneNumber:"",
     select:"",
     next:false,
-    pageNumber:2//1通用注册页面//2教育机构//3个人教师//4学生家长
+    pageNumber:1//1通用注册页面//2学生家长//3个人教师//4教育机构
 })
 const getChange=(state)=>{
     return (state.get("username")!==""&&!state.get("usernameBottom")&&
+        state.get("password")!==""&&
         state.get("password")===state.get("doublePassword")&&
         state.get("phoneNumber")!==""&&state.get("select")!=="")
 }

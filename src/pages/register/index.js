@@ -33,7 +33,6 @@ render(){
                         <Input 
                         title="密码:" 
                         placeholder="请输入密码" 
-                        error=""
                         value={password} 
                         onChange={(e)=>{changePassWord(e)}}
                         type="password"
@@ -49,7 +48,6 @@ render(){
                         <Input 
                         title="手机号:" 
                         placeholder="请输入手机号" 
-                        error=""
                         value={phoneNumber} 
                         onChange={(e)=>{changePhoneNumber(e)}}
                         type="number"
@@ -57,7 +55,6 @@ render(){
                         <Select 
                         title="账号类型:" 
                         placeholder="请选择账号类型" 
-                        error={select===""?"请选择账号类型":""} 
                         list={["教育机构","个人教师","学生家长"]}
                         value={select}
                         onChange={(data)=>{changeSelect(data)}}
@@ -116,7 +113,7 @@ const mapDispatchToProps=(dispatch)=>{
                         default:
                             pageNumber=1;
                     }
-                    console.log(pageNumber);
+                    // console.log(pageNumber);
                     dispatch(actionCreators.handleNext(pageNumber))
                 }
             }

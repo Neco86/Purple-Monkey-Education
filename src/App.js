@@ -6,6 +6,7 @@ import { GlobalStyle } from './style.js'
 import { GlobalIconStyle } from './statics/iconfont/iconfont.js'
 import Entry from './pages/entry'
 import Register from './pages/register'
+import './store/mock.js'
 
 function App() {
   return (
