@@ -1,0 +1,8 @@
+export const CHANGENAME='studentRegister/changeName'
+export const CHANGESEX='studentRegister/changeSex'
+export const CHANGEAGE='studentRegister/changeAge'
+export const CHANGEEDUAREA='studentRegister/changeEduArea'
+export const CHANGEPROVINCECHOOSE='studentRegister/changeprovinceChoose'
+export const CHANGENEXT='studentRegister/changeNext'
+export const STUDENTREGISTERFINISH='studentRegister/studentRegisterFinish'
+export const STUDENTREGISTERRESULT='studentRegister/studentRegisterResult'

@@ -11,7 +11,4 @@ export const SelectWrapper = styled.div`
     &.sex{
         top:110px;
     }
-    &.eduArea{
-        top:265px;
-    }
 `

@@ -31,7 +31,7 @@ render(){
                     value={name}
                     onChange={(e)=>{changeName(e)}}
                     />
-                    <div style={{height:"55px"}}/>
+                    <div style={{height:"45px"}}/>
                     <SelectWrapper className='sex'>
                         <Select
                         title="性别:"
@@ -56,7 +56,7 @@ render(){
                     type="number"
                     error={personIDBottom?"身份证号已注册":""}
                     />
-                    <div style={{height:"55px"}}/>
+                    <div style={{height:"45px"}}/>
                     <SelectWrapper className='eduArea'>
                         <Select
                         title="教育领域:"

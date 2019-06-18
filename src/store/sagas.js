@@ -3,6 +3,7 @@ import axios from 'axios'
 import { actionTypes as registerActionTypes,actionCreators as registerActionCreators }   from '../pages/register/store'
 import { actionTypes as groupRegisterActionTypes,actionCreators as groupRegisterActionCreators }   from '../pages/groupRegister/store'
 import { actionTypes as teacherRegisterActionTypes,actionCreators as teacherRegisterActionCreators }   from '../pages/teacherRegister/store'
+import { actionTypes as studentRegisterActionTypes,actionCreators as studentRegisterActionCreators }   from '../pages/studentRegister/store'
 
 
 function* getRegisterUserName(param) {
@@ -123,6 +124,30 @@ function* getTeacherRegisterResult(data) {
       console.log('json请求失败');
   }
 }
+function* getStudentRegisterResult(data) {
+  try {
+    const param=data.data;
+    const params={
+        username : param.username,//用户名
+        password:param.password,//密码
+        phoneNumber:param.phoneNumber,//手机号
+        select:param.select,//账号类型
+        name:param.name,//孩子姓名
+        sex:param.sex,//孩子性别
+        age:param.age,//孩子年龄
+        eduArea:param.eduAreaChoose,//详细地址
+        place:param.provinceChoose//店面地址
+    }
+    const res=yield axios.post('/api/studentRegisterFinish', {
+            params:params
+        });
+    const resData=res.data
+    const action=studentRegisterActionCreators.studentRegisterResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -131,6 +156,7 @@ function* mySaga() {
   yield takeEvery(groupRegisterActionTypes.GROUPREGISTERFINISH, groupRegisterFinish);
   yield takeEvery(teacherRegisterActionTypes.CHANGEPERSONID, getTeacherRegisterPID);
   yield takeEvery(teacherRegisterActionTypes.TEACHERREGISTERFINISH, getTeacherRegisterResult);
+  yield takeEvery(studentRegisterActionTypes.STUDENTREGISTERFINISH, getStudentRegisterResult);
 }
 
 export default mySaga;
