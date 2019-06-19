@@ -3,7 +3,7 @@ const { fromJS } = require('immutable')
 const defaultState=fromJS({
     username:"",
     password:"",
-    type:""
+    type:"type1"//默认空,type1,type2,error1,error2,error3为调试使用
 })
 
 export default (state=defaultState,action)=>{

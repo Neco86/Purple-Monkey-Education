@@ -7,6 +7,7 @@ import { GlobalIconStyle } from './statics/iconfont/iconfont.js'
 import Entry from './pages/entry'
 import Register from './pages/register'
 import Login from './pages/login'
+import Home from './pages/home'
 import './store/mock.js'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             {<Route path='/' exact component={Entry}></Route>}
             {<Route path='/register' exact component={Register}></Route>}
             {<Route path='/login' exact component={Login}></Route>}
+            {<Route path='/home' exact component={Home}></Route>}
         </BrowserRouter>
     </Provider>
   );
