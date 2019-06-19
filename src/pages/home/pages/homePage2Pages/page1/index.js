@@ -9,7 +9,7 @@ class HomePage2Page1 extends PureComponent{
 render(){
          return(
             <div>
-                <SearchWrapper className="search" style={{zIndex:"2"}}>
+                <SearchWrapper className="search">
                     <Input
                     title={<i className="iconfont">&#xe611;</i>}
                     placeholder="搜索课程/教师/机构"

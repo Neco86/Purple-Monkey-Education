@@ -13,7 +13,7 @@ class HomePage2 extends PureComponent{
 render(){
          return(
             <HomePageWrapper>
-                <div className="tabBar" style={{zIndex:"1"}}>
+                <div className="tabBar">
                     <TabBars
                     titles={["首页","分类","课程表","我的"]}
                     icon1={
