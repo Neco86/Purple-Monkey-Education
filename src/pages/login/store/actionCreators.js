@@ -17,3 +17,6 @@ export const loginResult = (data)=>({
     type:actionTypes.LOGINRESULT,
     data:data
 })
+export const reLogin = ()=>({
+    type:actionTypes.RELOGIN
+})

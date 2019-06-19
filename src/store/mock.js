@@ -89,6 +89,8 @@ Mock.mock(RegExp("/api/login"),'post',(post)=>{//登录
   console.log(post.body)
   return {
     "succ":true,
-    "data":true
+    "data":"type1"
+    //error1用户名或密码错误,error2等待审核,error3审核未通过
+    //type1个人教师/教育机构,type2学生家长
   }
 })

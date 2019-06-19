@@ -159,7 +159,7 @@ function* getLogin(param) {
             params:params
         });
     const resData=res.data
-    const action=loginActionCreators.loginResult(resData)
+    const action=loginActionCreators.loginResult(resData.data)
     yield put(action)
   }catch(e){
       console.log('json请求失败');

@@ -10,6 +10,7 @@ export const NavBarWrapper = styled.div`
    z-index:99;
    div{
     width:75px;
+    margin-left:10px;
    }
    i{
     font-size:20px;

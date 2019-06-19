@@ -2,7 +2,8 @@ import * as actionTypes from './actionTypes'
 const { fromJS } = require('immutable')
 const defaultState=fromJS({
     username:"",
-    password:""
+    password:"",
+    type:""
 })
 
 export default (state=defaultState,action)=>{
@@ -12,8 +13,9 @@ export default (state=defaultState,action)=>{
         case actionTypes.CHANGEPASSWORD:
             return state.set("password",action.data)
         case actionTypes.LOGINRESULT:
-            console.log(action.data);
-            return state
+            return state.set("type",action.data)
+        case actionTypes.RELOGIN:
+            return state.set("type","")
         default: 
             return state
     }
