@@ -5,7 +5,7 @@ import { actionTypes as groupRegisterActionTypes,actionCreators as groupRegister
 import { actionTypes as teacherRegisterActionTypes,actionCreators as teacherRegisterActionCreators }   from '../pages/teacherRegister/store'
 import { actionTypes as studentRegisterActionTypes,actionCreators as studentRegisterActionCreators }   from '../pages/studentRegister/store'
 import { actionTypes as loginActionTypes,actionCreators as loginActionCreators }   from '../pages/login/store'
-
+import { actionTypes as h1p1ActionTypes,actionCreators as h1p1ActionCreators }   from '../pages/home/pages/homePage1Pages/page1/store'
 
 function* getRegisterUserName(param) {
   try {
@@ -165,6 +165,26 @@ function* getLogin(param) {
       console.log('json请求失败');
   }
 }
+function* getNewsList() {
+  try {
+    const res=yield axios.get('/api/getNewsList');
+    const resData=res.data
+    const action=h1p1ActionCreators.setNewsList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* getVideosList() {
+  try {
+    const res=yield axios.get('/api/getVideosList');
+    const resData=res.data
+    const action=h1p1ActionCreators.setVideosList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -175,6 +195,8 @@ function* mySaga() {
   yield takeEvery(teacherRegisterActionTypes.TEACHERREGISTERFINISH, getTeacherRegisterResult);
   yield takeEvery(studentRegisterActionTypes.STUDENTREGISTERFINISH, getStudentRegisterResult);
   yield takeEvery(loginActionTypes.LOGIN, getLogin);
+  yield takeEvery(h1p1ActionTypes.GETNEWSLIST, getNewsList);
+  yield takeEvery(h1p1ActionTypes.GETVIDEOSLIST, getVideosList);
 }
 
 export default mySaga;

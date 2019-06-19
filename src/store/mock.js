@@ -94,3 +94,68 @@ Mock.mock(RegExp("/api/login"),'post',(post)=>{//登录
     //type1个人教师/教育机构,type2学生家长
   }
 })
+Mock.mock(RegExp("/api/getNewsList"),'get',()=>{//新闻内容
+  return {
+    "succ":true,
+    "data":[
+              {
+                "key":"1",
+                "title":"1贸易争端加剧困境 美国农民：人生艰难，别再“豆”我了",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "username":"新华社新闻",
+                "time":["2019-06-05","18:24"],
+                "commentCount":"1"
+              },
+              {
+                "key":"2",
+                "title":"2贸易争端加剧困境 美国农民：人生艰难，别再“豆”我了",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "username":"新华社新闻",
+                "time":["2019-06-05","18:24"],
+                "commentCount":"1"
+              },
+              {
+                "key":"3",
+                "title":"3贸易争端加剧困境 美国农民：人生艰难，别再“豆”我了",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "username":"新华社新闻",
+                "time":["2019-06-05","18:24"],
+                "commentCount":"1"
+              }
+          ]
+  }
+})
+Mock.mock(RegExp("/api/getVideosList"),'get',()=>{//视频内容
+  return {
+    "succ":true,
+    "data":[
+              {
+                "key":"1",
+                "title":"1贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "username":"新华社新闻",
+                "commentCount":"1"
+              },
+              {
+                "key":"2",
+                "title":"2贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "username":"新华社新闻",
+                "commentCount":"1"
+              },
+              {
+                "key":"3",
+                "title":"3贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "username":"新华社新闻",
+                "commentCount":"1"
+              }
+          ]
+  }
+})

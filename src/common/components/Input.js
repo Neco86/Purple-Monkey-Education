@@ -13,6 +13,8 @@ render(){
                     value={this.props.value}
                     onChange={(e)=>{this.props.onChange(e)}}
                     type={this.props.type}
+                    onFocus={()=>{this.props.onFocus()}}
+                    onBlur={()=>{this.props.onBlur()}}
                     />
                     <span>{this.props.error}</span>
                 </div>

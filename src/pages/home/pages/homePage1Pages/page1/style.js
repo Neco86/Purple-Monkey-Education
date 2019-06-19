@@ -23,3 +23,9 @@ export const TabWrapper = styled.div`
         z-index:1;
     }
 `
+export const NewsPageWrapper = styled.div`
+    
+`
+export const VideosPageWrapper = styled.div`
+    
+`
