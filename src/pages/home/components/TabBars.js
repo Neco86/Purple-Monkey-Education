@@ -9,13 +9,6 @@ class TabBars extends Component{
           selectedTab: this.props.selectedTab
         };
       }
-      renderContent(pageText) {
-          return (
-            <div style={{paddingTop:"55px",height:"100%"}}>
-              {pageText}
-            </div>
-          );
-        }
 render(){
          return(
             <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0}}>

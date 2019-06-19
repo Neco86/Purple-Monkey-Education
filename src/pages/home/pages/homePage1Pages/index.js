@@ -3,16 +3,19 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { HomePageWrapper } from './style'
 import TabBars from '../../components/TabBars'
-// import { actionCreators } from './store'
+import { actionCreators as P1actionCreators } from './page1/store'
 import HomePage1Page1 from './page1'
 import HomePage1Page2 from './page2'
 import HomePage1Page3 from './page3'
 import HomePage1Page4 from './page4'
+import Search from '../../components/Search'
 
 class HomePage1 extends PureComponent{
 render(){
+        const { goSearch,search,backFunc } = this.props;
          return(
             <HomePageWrapper>
+              {!goSearch?
                 <div className="tabBar">
                     <TabBars
                     titles={["首页","试听","课程","我的"]}
@@ -63,6 +66,12 @@ render(){
                     selectedTab="tab1"
                     />
                 </div>
+                :
+                <Search
+                search={search}
+                backFunc={()=>{backFunc()}}
+                />
+              }
             </HomePageWrapper>
         )
    
@@ -70,14 +79,15 @@ render(){
 }
 const mapDispatchToProps=(dispatch)=>{
             return {
-                addClassBack(history){
-                    // dispatch(actionCreators.addClassBack())
+                backFunc(){
+                    dispatch(P1actionCreators.changeGoSearch(false))
                 }
             }
         }
 const mapStateToProps=(state)=>{
     return {
-        // tabBarPage:state.getIn(['home','tabBarPage']),
+        goSearch:state.getIn(['h1p1','goSearch']),
+        search:state.getIn(['h1p1','search']),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(HomePage1));

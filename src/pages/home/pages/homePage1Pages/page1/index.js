@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-// import { actionCreators } from './store'
+import { actionCreators } from './store'
 import { SearchWrapper,TabWrapper } from './style'
 import Input from '../../../../../common/components/Input'
 import Tab from '../../../components/Tab'
@@ -16,16 +16,18 @@ constructor(props) {
         };
       }
 render(){
+        const { search,changeSearch,onKeyPress,tabPage,changeTabPage } = this.props;
          return(
             <div>
                 <SearchWrapper className="search" style={{zIndex:"3"}}>
                     <Input
                     title={<i className="iconfont">&#xe611;</i>}
                     placeholder="搜索课程/教师/机构"
-                    value=""
-                    onChange={()=>{}}
+                    value={search}
+                    onChange={(e)=>{changeSearch(e)}}
                     onFocus={()=>{this.setState({searching:true})}}
                     onBlur={()=>{this.setState({searching:false})}}
+                    onKeyPress={(e)=>(e.charCode===13?onKeyPress(this,search):null)}
                     />
                 </SearchWrapper>
                 <div style={{paddingTop:"50px",width:"100%"}}>
@@ -35,7 +37,8 @@ render(){
                         titles={["新闻","视频"]}
                         page1={()=>(<NewsPage/>)}
                         page2={()=>(<VideosPage/>)}
-                        tabPage={0}
+                        tabPage={tabPage}
+                        onChange={(tab,index)=>{changeTabPage(index)}}
                         />
                     </TabWrapper>
                 </div>
@@ -45,15 +48,27 @@ render(){
 }
 }
 const mapDispatchToProps=(dispatch)=>{
-            return {
-                addClassBack(history){
-                    // dispatch(actionCreators.addClassBack())
-                }
+        return {
+            changeSearch(e){
+                dispatch(actionCreators.changeSearch(e.target.value))
+            },
+            onKeyPress(that,search){//回车
+                if (search!=="")
+                    {
+                        that.setState({searching:false})
+                        dispatch(actionCreators.changeGoSearch(true))
+                    }
+            },
+            changeTabPage(index){
+               dispatch(actionCreators.changeTabPage(index))
             }
-        }
+    }
+}
 const mapStateToProps=(state)=>{
     return {
-        // tabBarPage:state.getIn(['home','tabBarPage']),
+        search:state.getIn(['h1p1','search']),
+        goSearch:state.getIn(['h1p1','goSearch']),
+        tabPage:state.getIn(['h1p1','tabPage']),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(HomePage1Page1));

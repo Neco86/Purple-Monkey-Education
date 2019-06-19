@@ -15,6 +15,7 @@ render(){
                     type={this.props.type}
                     onFocus={()=>{this.props.onFocus()}}
                     onBlur={()=>{this.props.onBlur()}}
+                    onKeyPress={(e)=>{this.props.onKeyPress(e)}}
                     />
                     <span>{this.props.error}</span>
                 </div>

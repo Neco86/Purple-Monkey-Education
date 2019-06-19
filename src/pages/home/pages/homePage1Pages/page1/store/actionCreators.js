@@ -14,3 +14,15 @@ export const setVideosList = (data)=>({
     type:actionTypes.SETVIDEOSLIST,
     data:data
 })
+export const changeSearch = (data)=>({
+    type:actionTypes.CHANGESEARCH,
+    data:data
+})
+export const changeGoSearch = (data)=>({
+    type:actionTypes.CHANGEGOSEARCH,
+    data:data
+})
+export const changeTabPage = (data)=>({
+    type:actionTypes.CHANGETABPAGE,
+    data:data
+})

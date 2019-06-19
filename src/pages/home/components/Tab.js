@@ -12,7 +12,7 @@ render(){
             <TabWrapper>
                 <Tabs tabs={tabs}
                   initialPage={this.props.tabPage}
-                  // onChange={(tab, index) => { console.log('onChange', index, tab); }}
+                  onChange={(tab, index) => { this.props.onChange(tab,index) }}
                   // onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                 >
                   {this.props.page1()}
