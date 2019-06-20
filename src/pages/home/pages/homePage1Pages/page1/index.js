@@ -8,6 +8,8 @@ import Tab from '../../../components/Tab'
 import NewsPage from './newsPage'
 import VideosPage from './videosPage'
 import SreachPage from './searchPage'
+import SreachDetail from './searchDetailPage'
+import Information from './informationPage'
 
 class HomePage1Page1 extends Component{
 constructor(props) {
@@ -45,18 +47,13 @@ getHome(){
             </Fragment>
 }
 render(){
-        const { page,search,changePage } = this.props;
+        const { page } = this.props;
          return(
             <div>
                 {page===0?this.getHome():null}
-                {page===1?
-                    <FullScreenWrapper>
-                        <SreachPage
-                        search={search}
-                        backFunc={()=>{changePage(0)}}
-                        />
-                    </FullScreenWrapper>
-                :null}
+                {page===1?<FullScreenWrapper><SreachPage/></FullScreenWrapper>:null}
+                {page===2?<FullScreenWrapper><SreachDetail/></FullScreenWrapper>:null}
+                {page===3?<FullScreenWrapper><Information/></FullScreenWrapper>:null}
             </div>
         )
    
@@ -70,16 +67,13 @@ const mapDispatchToProps=(dispatch)=>{
             onKeyPress(that,search){//回车
                 if (search!=="")
                     {
-                        that.setState({searching:false})
-                        dispatch(actionCreators.changePage(1))
+                        that.setState({searching:false})//关闭透明背景
+                        dispatch(actionCreators.changePage(1))//跳转search
                     }
             },
             changeTabPage(index){
                dispatch(actionCreators.changeTabPage(index))
             },
-            changePage(page){
-                dispatch(actionCreators.changePage(page))
-            }
     }
 }
 const mapStateToProps=(state)=>{

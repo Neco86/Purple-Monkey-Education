@@ -185,6 +185,48 @@ function* getVideosList() {
       console.log('json请求失败');
   }
 }
+function* getSearchList(param) {
+  try {
+    const res=yield axios.get('/api/getSearchList',{
+            params:{
+                search : param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.setSearchList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* getSearchDetail(param) {
+  try {
+    const res=yield axios.get('/api/getSearchDetail',{
+            params:{
+                key : param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.setSearchDetail(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* getInformation(param) {
+  try {
+    const res=yield axios.get('/api/getInformation',{
+            params:{
+                username : param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.setInformation(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -197,6 +239,9 @@ function* mySaga() {
   yield takeEvery(loginActionTypes.LOGIN, getLogin);
   yield takeEvery(h1p1ActionTypes.GETNEWSLIST, getNewsList);
   yield takeEvery(h1p1ActionTypes.GETVIDEOSLIST, getVideosList);
+  yield takeEvery(h1p1ActionTypes.GETSEARCH, getSearchList);
+  yield takeEvery(h1p1ActionTypes.GETSEARCHDETAIL, getSearchDetail);
+  yield takeEvery(h1p1ActionTypes.GETINFORMATION, getInformation);
 }
 
 export default mySaga;

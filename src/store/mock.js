@@ -159,3 +159,98 @@ Mock.mock(RegExp("/api/getVideosList"),'get',()=>{//视频内容
           ]
   }
 })
+Mock.mock(RegExp("/api/getSearchList.*"),'get',()=>{//搜索内容?search=xxx
+  return {
+    "succ":true,
+    "data":[
+              {
+                "key":"1",
+                "title":"1[周二开课]我要学产品-90天产品经理实战班(3天体验班)",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "cost":"0",
+                "person":"12"
+              },
+              {
+                "key":"2",
+                "title":"2贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "cost":"200",
+                "person":"35"
+              },
+              {
+                "key":"3",
+                "title":"3贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "cost":"300",
+                "person":"12"
+              }
+          ]
+  }
+})
+Mock.mock(RegExp("/api/getSearchDetail.*"),'get',()=>{//搜索内容详情?key=xxx
+  return {
+    "succ":true,
+    "data":{
+      "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "title":"贸易争端加剧困境",
+      "cost":"300",
+      "person":"500",
+      "grade":"5.0",
+      "type":"type1",//教育机构type1,教师type2
+      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "username":"贸易争端",
+      "userIntro":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境",
+      "comments":[
+      {
+        "username":"aaaaa",
+        "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+        "time":["2019-0605","49:55"],
+        "comment":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境"
+      }
+      ],
+      "dir":[
+      {
+        "title":"贸易争端加剧困境",
+        "time":["2019-06-09","16:00","20分钟"],
+        "des":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境贸易争端加剧困境",
+        "fileName":"第一次作业.doc",
+        "fileSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg"
+      }
+      ]
+    }
+  }
+})
+Mock.mock(RegExp("/api/getInformation.*"),'get',()=>{//搜索内容详情-资料?username=xxx
+  return {
+    "succ":true,
+    "data":{
+      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "username":"贸易争端",
+      "userIntro":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境",
+      "course":[
+              {
+                "key":"1",
+                "title":"1[周二开课]我要学产品-90天产品经理实战班(3天体验班)",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "cost":"0",
+                "person":"12"
+              },
+              {
+                "key":"2",
+                "title":"2贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "cost":"200",
+                "person":"35"
+              },
+              {
+                "key":"3",
+                "title":"3贸易争端加剧困境",
+                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "cost":"300",
+                "person":"12"
+              }
+          ],
+      "publish":["关于贸易争端加剧困境的通知","2019-6-17","13:14"]
+    }
+  }
+})

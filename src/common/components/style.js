@@ -9,7 +9,7 @@ export const NavBarWrapper = styled.div`
    position:fixed;
    z-index:99;
    div{
-    width:75px;
+    width:85px;
     margin-left:10px;
    }
    i{

@@ -70,7 +70,7 @@ export const NoItemWrapper=styled.div`
     .no{
         margin:55px auto;
         text-align:center;
-        width:150px;
+        width:170px;
         color:#d7d7d7;
         .iconfont{
             font-size:80px;
@@ -144,4 +144,41 @@ export const VideosWrapper = styled.div`
         }
     }
 
+`
+export const SearchItemWrapper = styled.div`
+    height:65px;
+    width:100%;
+    box-sizing:border-box;
+    display:flex;
+    overflow:hidden;
+    margin-bottom:10px;
+    div{
+        display:inline-block;
+    }
+    .left{
+        width:115px;
+        padding-left:15px;
+        img{
+            width:100%;
+            height:100%;
+        }
+    }
+    .right{
+        flex:1;
+        padding-right: 15px;
+        padding-left: 10px;
+        position:relative;
+        .left{
+            position:absolute;
+            bottom:0;
+            left:0;
+            color:#cc99ff;
+        }
+        .right{
+            position:absolute;
+            bottom:0;
+            right:0;
+            color:#aaaaaa;
+        }
+    }
 `

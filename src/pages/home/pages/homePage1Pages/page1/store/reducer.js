@@ -4,8 +4,17 @@ const defaultState=fromJS({
     newsList:[],
     videosList:[],
     search:"",
-    page:0,//0默认,1搜索
-    tabPage:0
+    page:3,//0默认,其他为了方便调试:1搜索,2搜索-详情,3搜索-详情-资料
+    tabPage:0,
+    searchResut:[],
+    searchClickKey:"",//搜索结果点击的key
+    searchDetail:{},//搜索结果详情
+    comments:[],//searchDetail的comments
+    dir:[],//searchDetail的dir
+    information:{},
+    course:[],//information的course
+    publish:[],//information的publish
+
 })
 
 export default (state=defaultState,action)=>{
@@ -20,6 +29,14 @@ export default (state=defaultState,action)=>{
             return state.set("page",action.data)
         case actionTypes.CHANGETABPAGE:
             return state.set("tabPage",action.data)
+        case actionTypes.SETSEARCH:
+            return state.set("searchResut",action.data)
+        case actionTypes.SETSEARCHCLICKKEY:
+            return state.set("searchClickKey",action.data)
+        case actionTypes.SETSEARCHDETAIL:
+            return state.merge({"searchDetail":action.data,"comments":action.comments,"dir":action.dir})
+        case actionTypes.SETINFORMATION:
+            return state.merge({"information":action.data,"course":action.course,"publish":action.publish})
         default: 
             return state
     }

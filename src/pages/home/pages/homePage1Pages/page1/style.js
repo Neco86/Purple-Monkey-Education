@@ -41,3 +41,33 @@ export const FullScreenWrapper = styled.div`
     overflow-y:scroll;
     overflow-x:hidden;
 `
+export const SearchResultWrapper = styled.div`
+    .result{
+        color:#aaaaaa;
+        margin:15px;
+    }
+`
+export const SearchDetailWrapper = styled.div`
+    .itemWrapper{
+        padding:15px;
+        border-bottom:1px solid #f9f9f9;
+        background-color:white;
+    }
+    .img{
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        overflow:hidden;
+        background-color:#f9f9f9;
+        margin-top:15px;
+        display:inline-block;
+        img{
+            width:100%;
+            height:100%;
+        }
+    }
+    
+`
+export const InformationWrapper = styled.div`
+    
+`
