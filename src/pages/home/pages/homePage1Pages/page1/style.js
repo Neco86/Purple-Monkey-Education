@@ -29,3 +29,15 @@ export const NewsPageWrapper = styled.div`
 export const VideosPageWrapper = styled.div`
     
 `
+export const FullScreenWrapper = styled.div`
+    height:100%;
+    width:100%;
+    position:fixed;
+    z-index:999;
+    background-color:#f9f9f9;
+    overflow:hidden;
+    top: 0;
+    bottom:0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+`

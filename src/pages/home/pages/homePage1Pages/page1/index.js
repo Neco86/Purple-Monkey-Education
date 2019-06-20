@@ -1,12 +1,13 @@
-import React,{ Component } from 'react'
+import React,{ Component,Fragment } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { actionCreators } from './store'
-import { SearchWrapper,TabWrapper } from './style'
+import { SearchWrapper,TabWrapper,FullScreenWrapper } from './style'
 import Input from '../../../../../common/components/Input'
 import Tab from '../../../components/Tab'
 import NewsPage from './newsPage'
 import VideosPage from './videosPage'
+import SreachPage from './searchPage'
 
 class HomePage1Page1 extends Component{
 constructor(props) {
@@ -15,10 +16,9 @@ constructor(props) {
           searching: false
         };
       }
-render(){
-        const { search,changeSearch,onKeyPress,tabPage,changeTabPage } = this.props;
-         return(
-            <div>
+getHome(){
+    const { search,changeSearch,onKeyPress,tabPage,changeTabPage } = this.props;
+    return <Fragment>
                 <SearchWrapper className="search" style={{zIndex:"3"}}>
                     <Input
                     title={<i className="iconfont">&#xe611;</i>}
@@ -31,7 +31,7 @@ render(){
                     />
                 </SearchWrapper>
                 <div style={{paddingTop:"50px",width:"100%"}}>
-                    {this.state.searching?<div style={{height:"100%",width:"100%",backgroundColor:"black",position:"fixed",zIndex:"999",opacity:"0.3"}}/>:null}
+                    {this.state.searching?<FullScreenWrapper style={{backgroundColor:"black",opacity:"0.3",top:"55px"}}/>:null}
                     <TabWrapper style={{zIndex:"2"}}>
                         <Tab
                         titles={["新闻","视频"]}
@@ -42,6 +42,21 @@ render(){
                         />
                     </TabWrapper>
                 </div>
+            </Fragment>
+}
+render(){
+        const { page,search,changePage } = this.props;
+         return(
+            <div>
+                {page===0?this.getHome():null}
+                {page===1?
+                    <FullScreenWrapper>
+                        <SreachPage
+                        search={search}
+                        backFunc={()=>{changePage(0)}}
+                        />
+                    </FullScreenWrapper>
+                :null}
             </div>
         )
    
@@ -56,18 +71,21 @@ const mapDispatchToProps=(dispatch)=>{
                 if (search!=="")
                     {
                         that.setState({searching:false})
-                        dispatch(actionCreators.changeGoSearch(true))
+                        dispatch(actionCreators.changePage(1))
                     }
             },
             changeTabPage(index){
                dispatch(actionCreators.changeTabPage(index))
+            },
+            changePage(page){
+                dispatch(actionCreators.changePage(page))
             }
     }
 }
 const mapStateToProps=(state)=>{
     return {
         search:state.getIn(['h1p1','search']),
-        goSearch:state.getIn(['h1p1','goSearch']),
+        page:state.getIn(['h1p1','page']),
         tabPage:state.getIn(['h1p1','tabPage']),
     }
 }

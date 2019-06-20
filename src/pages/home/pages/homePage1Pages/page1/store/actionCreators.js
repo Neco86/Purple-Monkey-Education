@@ -18,8 +18,8 @@ export const changeSearch = (data)=>({
     type:actionTypes.CHANGESEARCH,
     data:data
 })
-export const changeGoSearch = (data)=>({
-    type:actionTypes.CHANGEGOSEARCH,
+export const changePage = (data)=>({
+    type:actionTypes.CHANGEPAGE,
     data:data
 })
 export const changeTabPage = (data)=>({

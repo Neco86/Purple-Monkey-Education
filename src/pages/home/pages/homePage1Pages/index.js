@@ -3,20 +3,17 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { HomePageWrapper } from './style'
 import TabBars from '../../components/TabBars'
-import { actionCreators as P1actionCreators } from './page1/store'
+import { actionCreators  } from './store'
 import HomePage1Page1 from './page1'
 import HomePage1Page2 from './page2'
 import HomePage1Page3 from './page3'
 import HomePage1Page4 from './page4'
-import Search from '../../components/Search'
 
 class HomePage1 extends PureComponent{
 render(){
-        const { goSearch,search,backFunc } = this.props;
+        const { selectedTab,changeTab1,changeTab2,changeTab3,changeTab4 } = this.props;
          return(
             <HomePageWrapper>
-              {!goSearch?
-                <div className="tabBar">
                     <TabBars
                     titles={["首页","试听","课程","我的"]}
                     icon1={
@@ -63,15 +60,12 @@ render(){
                     page2={()=>(<HomePage1Page2/>)}
                     page3={()=>(<HomePage1Page3/>)}
                     page4={()=>(<HomePage1Page4/>)}
-                    selectedTab="tab1"
+                    selectedTab={selectedTab}
+                    page1OnPress={()=>{changeTab1()}}
+                    page2OnPress={()=>{changeTab2()}}
+                    page3OnPress={()=>{changeTab3()}}
+                    page4OnPress={()=>{changeTab4()}}
                     />
-                </div>
-                :
-                <Search
-                search={search}
-                backFunc={()=>{backFunc()}}
-                />
-              }
             </HomePageWrapper>
         )
    
@@ -79,15 +73,23 @@ render(){
 }
 const mapDispatchToProps=(dispatch)=>{
             return {
-                backFunc(){
-                    dispatch(P1actionCreators.changeGoSearch(false))
-                }
+                changeTab1(){
+                  dispatch(actionCreators.changeTab1())
+                },
+                changeTab2(){
+                  dispatch(actionCreators.changeTab2())
+                },
+                changeTab3(){
+                  dispatch(actionCreators.changeTab3())
+                },
+                changeTab4(){
+                  dispatch(actionCreators.changeTab4())
+                },
             }
         }
 const mapStateToProps=(state)=>{
     return {
-        goSearch:state.getIn(['h1p1','goSearch']),
-        search:state.getIn(['h1p1','search']),
+        selectedTab:state.getIn(['h1','selectedTab']),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(HomePage1));

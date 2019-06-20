@@ -4,7 +4,7 @@ const defaultState=fromJS({
     newsList:[],
     videosList:[],
     search:"",
-    goSearch:false,
+    page:0,//0默认,1搜索
     tabPage:0
 })
 
@@ -16,8 +16,8 @@ export default (state=defaultState,action)=>{
             return state.set("videosList",action.data)
         case actionTypes.CHANGESEARCH:
             return state.set("search",action.data)
-        case actionTypes.CHANGEGOSEARCH:
-            return state.set("goSearch",action.data)
+        case actionTypes.CHANGEPAGE:
+            return state.set("page",action.data)
         case actionTypes.CHANGETABPAGE:
             return state.set("tabPage",action.data)
         default: 

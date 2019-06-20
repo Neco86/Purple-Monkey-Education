@@ -2,9 +2,9 @@ import React,{ PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 // import { actionCreators } from './store'
-import NavBar from '../../../common/components/NavBar'
+import NavBar from '../../../../../common/components/NavBar'
 
-class Search extends PureComponent{
+class SearchPage extends PureComponent{
 render(){
          return(
             <div>
@@ -13,6 +13,8 @@ render(){
                 func={()=>{this.props.backFunc()}}
                 />
                 <div style={{height:"45px"}}/>
+                {this.props.search}
+                <div style={{height:"1000px",backgroundColor:"green"}}/>
                 {this.props.search}
             </div>
         )
@@ -31,4 +33,4 @@ const mapStateToProps=(state)=>{
         // tabBarPage:state.getIn(['home','tabBarPage']),
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Search));
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(SearchPage));
