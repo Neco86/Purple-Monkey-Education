@@ -76,11 +76,13 @@ export const changeInputComment = (data)=>({
     type:actionTypes.CHANGEINPUTCOMMENT,
     data:data
 })
-export const postComment = (data,username,time)=>({
+export const postComment = (data,username,time,type,key)=>({
     type:actionTypes.POSTCOMMENT,
     data:data,
     username:username,
-    time:time
+    time:time,
+    postType:type,
+    key:key
 })
 export const postCommentResult = (data)=>({
     type:actionTypes.POSTCOMMENTRESULT,

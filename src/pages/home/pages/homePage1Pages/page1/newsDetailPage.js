@@ -17,7 +17,7 @@ constructor(props) {
 render(){
         const { changePage,newsDetail,newsComments,time,
             inputComment,changeInputComment,postComment,username,userImg,
-            postCommentResult,setCommentResult
+            postCommentResult,setCommentResult,newsClickKey
              } = this.props;
          return(
             <NewsDetailWrapper>
@@ -81,7 +81,7 @@ render(){
                             />
                             <div className="cbottom">
                                 <div style={{float:"left"}} className="left iconfont">&#xe791;</div>
-                                <div style={{float:"right"}} className="right" onClick={()=>{postComment(inputComment,username,userImg,newsComments);this.setState({commenting:false})}}>发布</div>
+                                <div style={{float:"right"}} className="right" onClick={()=>{postComment(inputComment,username,userImg,newsComments,newsClickKey);this.setState({commenting:false})}}>发布</div>
                             </div>
                         </div>
                     </div>
@@ -129,12 +129,12 @@ const mapDispatchToProps=(dispatch)=>{
                 changeInputComment(e){
                     dispatch(actionCreators.changeInputComment(e.target.value))
                 },
-                postComment(data,username,userImg,newsComments){
+                postComment(data,username,userImg,newsComments,key){
                     var date=new Date();
                     var timeStr1=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDay()}`
                     var timeStr2=`${date.getHours()}:${date.getMinutes()}`;
                     const time=[timeStr1,timeStr2]
-                    dispatch(actionCreators.postComment(data,username,time))
+                    dispatch(actionCreators.postComment(data,username,time,"news",key))
                     dispatch(actionCreators.changeNewsCommetns(newsComments,data,username,userImg,time))
                 },
                 getUserImg(username){

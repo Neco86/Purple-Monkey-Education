@@ -17,7 +17,7 @@ this.state = {
 render(){
         const { videosDetailContent,changePage,videosTime,videosComments,
                 inputComment,changeInputComment,postComment,username,userImg,
-                postCommentResult,setCommentResult
+                postCommentResult,setCommentResult,videosClickKey
          } = this.props;
          return(
             <VideosDetailWrapper>
@@ -82,7 +82,7 @@ render(){
                                 />
                                 <div className="cbottom">
                                     <div style={{float:"left"}} className="left iconfont">&#xe791;</div>
-                                    <div style={{float:"right"}} className="right" onClick={()=>{postComment(inputComment,username,userImg,videosComments);this.setState({commenting:false})}}>发布</div>
+                                    <div style={{float:"right"}} className="right" onClick={()=>{postComment(inputComment,username,userImg,videosComments,videosClickKey);this.setState({commenting:false})}}>发布</div>
                                 </div>
                             </div>
                         </div>
@@ -127,12 +127,12 @@ const mapDispatchToProps=(dispatch)=>{
                 changeInputComment(e){
                     dispatch(actionCreators.changeInputComment(e.target.value))
                 },
-                postComment(data,username,userImg,videosComments){
+                postComment(data,username,userImg,videosComments,key){
                     var date=new Date();
                     var timeStr1=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDay()}`
                     var timeStr2=`${date.getHours()}:${date.getMinutes()}`;
                     const time=[timeStr1,timeStr2]
-                    dispatch(actionCreators.postComment(data,username,time))
+                    dispatch(actionCreators.postComment(data,username,time,"video",key))
                     dispatch(actionCreators.changeVideosCommetns(videosComments,data,username,userImg,time))
                 },
                 getUserImg(username){

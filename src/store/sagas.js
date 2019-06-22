@@ -247,7 +247,9 @@ function* postComment(param) {
             params:{
                 data : param.data,
                 username:param.username,
-                time:param.time
+                time:param.time,
+                type:param.postType,
+                key:param.key
             }
         });
     const resData=res.data
