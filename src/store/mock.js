@@ -254,3 +254,36 @@ Mock.mock(RegExp("/api/getInformation.*"),'get',()=>{//搜索内容详情-资料
     }
   }
 })
+Mock.mock(RegExp("/api/getNewsDetail.*"),'get',()=>{//新闻详情?newsKey=xxx
+  return {
+    "succ":true,
+    "data":{
+      "title":"贸易争端加剧困境",
+      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "username":"新华社新闻",
+      "time":["2019-06-05","18:24"],
+      "content":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境",
+      "comments":[
+      {
+        "username":"aaaaa",
+        "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+        "time":["2019-0605","49:55"],
+        "comment":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境"
+      }
+      ]
+    }
+  }
+})
+Mock.mock(RegExp("/api/postComment"),'post',(post)=>{//data发布的内容,username发布者
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true发布成功
+  }
+})
+Mock.mock(RegExp("/api/getUserImg"),'get',()=>{//?username=xxx
+  return {
+    "succ":true,
+    "data":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg"
+  }
+})

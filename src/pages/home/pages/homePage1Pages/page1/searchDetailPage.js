@@ -58,7 +58,7 @@ render(){
                                     :
                                     <div style={{padding:"15px"}}>
                                         {comments.map((item,index)=>
-                                            (<div key={index}>
+                                            (<div key={index} style={{marginTop:"15px"}}>
                                                 <img src={item.userImg} alt="" style={{width:"20px",height:"20px",borderRadius:"50%"}}/>
                                                 <span style={{display:"inline-block",position:"relative",top:"-4px",left:"5px"}}>{item.username}</span>
                                                 <span style={{float:"right",color:"#aaa"}}>{item.time[1]}</span>

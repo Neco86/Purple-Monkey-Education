@@ -4,9 +4,9 @@ const defaultState=fromJS({
     newsList:[],
     videosList:[],
     search:"",
-    page:3,//0默认,其他为了方便调试:1搜索,2搜索-详情,3搜索-详情-资料
+    page:4,//0默认,其他为了方便调试:1搜索,2搜索-详情,3搜索-详情-资料,4新闻详情
     tabPage:0,
-    searchResut:[],
+    searchResut:[],//搜索结果
     searchClickKey:"",//搜索结果点击的key
     searchDetail:{},//搜索结果详情
     comments:[],//searchDetail的comments
@@ -14,7 +14,13 @@ const defaultState=fromJS({
     information:{},
     course:[],//information的course
     publish:[],//information的publish
-
+    newsClickKey:"",//主页新闻点击的key
+    newsDetail:[],//新闻详情
+    newsComments:[],//newsDetai的Comments
+    time:[],//newsDetail的time
+    inputComment:"",//新闻详情发布 评论
+    postCommentResult:false,
+    userImg:"",//用户头像
 })
 
 export default (state=defaultState,action)=>{
@@ -37,6 +43,22 @@ export default (state=defaultState,action)=>{
             return state.merge({"searchDetail":action.data,"comments":action.comments,"dir":action.dir})
         case actionTypes.SETINFORMATION:
             return state.merge({"information":action.data,"course":action.course,"publish":action.publish})
+        case actionTypes.SETNEWSCLICKKEY:
+            return state.set("newsClickKey",action.data)
+        case actionTypes.SETNEWSDETAIL:
+            return state.merge({"newsDetail":action.data,"newsComments":action.comments,"time":action.time})
+        case actionTypes.CHANGEINPUTCOMMENT:
+            return state.set("inputComment",action.data)
+        case actionTypes.POSTCOMMENT:
+            return state.merge({"inputComment":""})
+        case actionTypes.POSTCOMMENTRESULT:
+            return state.merge({"postCommentResult":action.data})
+        case actionTypes.SETUSERIMG:
+            return state.set("userImg",action.data)
+        case actionTypes.CHANGENEWSCOMMENTS:
+            return state.set("newsComments",action.data)
+        case actionTypes.SETCOMMENTRESULT:
+            return state.set("postCommentResult",action.data)
         default: 
             return state
     }

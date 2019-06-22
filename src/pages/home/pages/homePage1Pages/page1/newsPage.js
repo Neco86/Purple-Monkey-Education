@@ -26,7 +26,7 @@ render(){
                         username={item.username}
                         time={item.time}
                         commentCount={item.commentCount}
-                        onClick={()=>{console.log("clicked news "+item.key);}}
+                        onClick={()=>{this.props.setNewsClickKey(item.key)}}
                         />
                     ))}
                 </div>
@@ -43,6 +43,10 @@ const mapDispatchToProps=(dispatch)=>{
             return {
                 getNewsList(){
                     dispatch(actionCreators.getNewsList())
+                },
+                setNewsClickKey(key){
+                    dispatch(actionCreators.setNewsClickKey(key))
+                    dispatch(actionCreators.changePage(4))
                 }
             }
         }

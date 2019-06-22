@@ -227,6 +227,50 @@ function* getInformation(param) {
       console.log('json请求失败');
   }
 }
+function* getNewsDetail(param) {
+  try {
+    const res=yield axios.get('/api/getNewsDetail',{
+            params:{
+                newsKey : param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.setNewsDetail(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* postComment(param) {
+  try {
+    const res=yield axios.post('/api/postComment',{
+            params:{
+                data : param.data,
+                username:param.username,
+                time:param.time
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.postCommentResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* getUserImg(param) {
+  try {
+    const res=yield axios.get('/api/getUserImg',{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.setUserImg(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -242,6 +286,9 @@ function* mySaga() {
   yield takeEvery(h1p1ActionTypes.GETSEARCH, getSearchList);
   yield takeEvery(h1p1ActionTypes.GETSEARCHDETAIL, getSearchDetail);
   yield takeEvery(h1p1ActionTypes.GETINFORMATION, getInformation);
+  yield takeEvery(h1p1ActionTypes.GETNEWSDETAIL, getNewsDetail);
+  yield takeEvery(h1p1ActionTypes.POSTCOMMENT, postComment);
+  yield takeEvery(h1p1ActionTypes.GETUSERIMG, getUserImg);
 }
 
 export default mySaga;

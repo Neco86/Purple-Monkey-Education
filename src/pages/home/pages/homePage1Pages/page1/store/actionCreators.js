@@ -58,3 +58,47 @@ export const setInformation = (data)=>({
     course:data.course,
     publish:data.publish
 })
+export const setNewsClickKey = (key)=>({
+    type:actionTypes.SETNEWSCLICKKEY,
+    data:key,
+})
+export const getNewsDetail = (key)=>({
+    type:actionTypes.GETNEWSDETAIL,
+    data:key,
+})
+export const setNewsDetail = (data)=>({
+    type:actionTypes.SETNEWSDETAIL,
+    data:data,
+    time:data.time,
+    comments:data.comments
+})
+export const changeInputComment = (data)=>({
+    type:actionTypes.CHANGEINPUTCOMMENT,
+    data:data
+})
+export const postComment = (data,username,time)=>({
+    type:actionTypes.POSTCOMMENT,
+    data:data,
+    username:username,
+    time:time
+})
+export const postCommentResult = (data)=>({
+    type:actionTypes.POSTCOMMENTRESULT,
+    data:data,
+})
+export const getUserImg = (data)=>({
+    type:actionTypes.GETUSERIMG,
+    data:data,
+})
+export const setUserImg = (data)=>({
+    type:actionTypes.SETUSERIMG,
+    data:data,
+})
+export const changeNewsCommetns = (newsComments,data,username,userImg,time)=>({
+    type:actionTypes.CHANGENEWSCOMMENTS,
+    data:[...newsComments,{"username":username,"userImg":userImg,"time":time,"comment":data}]
+})
+export const setCommentResult = (data)=>({
+    type:actionTypes.SETCOMMENTRESULT,
+    data:data,
+})
