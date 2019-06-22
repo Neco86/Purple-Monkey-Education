@@ -287,3 +287,23 @@ Mock.mock(RegExp("/api/getUserImg"),'get',()=>{//?username=xxx
     "data":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg"
   }
 })
+Mock.mock(RegExp("/api/getVideosDetail"),'get',()=>{//?videosKey=xxx
+  return {
+    "succ":true,
+    "data":{
+      "title":"贸易争端加剧困境",
+      "videoSrc":"https://f.us.sinaimg.cn/00029qullx07uOTIDa4001041200RUE20E010.mp4?label=mp4_hd&template=852x480.28.0&Expires=1561179946&ssig=fOh1id3Kmc&KID=unistore,video",
+      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "username":"新华社新闻",
+      "time":["2019-06-05","18:24"],
+      "comments":[
+      {
+        "username":"aaaaa",
+        "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+        "time":["2019-0605","49:55"],
+        "comment":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境"
+      }
+      ]
+    }
+  }
+})

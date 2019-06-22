@@ -11,6 +11,7 @@ import SreachPage from './searchPage'
 import SreachDetail from './searchDetailPage'
 import Information from './informationPage'
 import NewsDetail from './newsDetailPage'
+import VideosDetail from './videosDetailPage'
 
 class HomePage1Page1 extends Component{
 constructor(props) {
@@ -56,6 +57,7 @@ render(){
                 {page===2?<FullScreenWrapper><SreachDetail/></FullScreenWrapper>:null}
                 {page===3?<FullScreenWrapper><Information/></FullScreenWrapper>:null}
                 {page===4?<FullScreenWrapper><NewsDetail/></FullScreenWrapper>:null}
+                {page===5?<FullScreenWrapper><VideosDetail/></FullScreenWrapper>:null}
             </div>
         )
    

@@ -162,3 +162,76 @@ export const NewsDetailWrapper = styled.div`
         }
     }
 `
+export const VideosDetailWrapper = styled.div`
+    background-color:white;
+    .video{
+        width:100%;
+        height:180px;
+        background-color:#f2f2f2;
+        video{
+            display:block;
+            width:100%;
+            height:100%;
+        }
+    }
+    .publisher{
+        padding:10px 20px;
+        img{
+            width:15px;
+            height:15px;
+            border-radius:50%;
+        }
+        span{
+            margin-left:5px;
+            color:#aaaaaa;
+        }
+    }
+    .bottom{
+        height:45px;
+        width:100%;
+        background-color:white;
+        position:fixed;
+        bottom:0;
+        left:0;
+        border-top:1px solid #d7d7d7;
+        padding:5px 20px;
+        input{
+            border:none;
+            outline:none;
+            border-radius:15px;
+            background-color:#f2f2f2;
+            width:100%;
+            height:100%;
+        }
+    }
+    .comment{
+        height:140px;
+        width:100%;
+        background-color:white;
+        position:fixed;
+        bottom:0;
+        left:0;
+        padding:10px;
+        textarea{
+            height:85px;
+            width:100%;
+            border:none;
+            background-color:#f2f2f2;
+            border-radius:5px;
+        }
+        .cbottom{
+            margin-top:15px;
+            color:black;
+            .right{
+                height:25px;
+                width:50px;
+                line-height:25px;
+                text-align:center;
+                color:white;
+                background-color:#cc99ff;
+                border-radius:5px;
+                margin-top:-5px;
+            }
+        }
+    }
+`

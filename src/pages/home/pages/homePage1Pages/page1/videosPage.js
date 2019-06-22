@@ -7,7 +7,7 @@ import NoItem from '../../../components/NoItem'
 
 class VideosPage extends PureComponent{
 render(){
-        const { videosList } = this.props; 
+        const { videosList,setVideosClickKey } = this.props; 
          return(
             <VideosPageWrapper>
                 {
@@ -25,7 +25,7 @@ render(){
                         userImg={item.userImg}
                         username={item.username}
                         commentCount={item.commentCount}
-                        onClick={()=>{console.log("clicked videos "+item.key);}}
+                        onClick={()=>{setVideosClickKey(item.key)}}
                         />
                     ))}
                 </div>
@@ -42,6 +42,10 @@ const mapDispatchToProps=(dispatch)=>{
             return {
                 getVideosList(){
                     dispatch(actionCreators.getVideosList())
+                },
+                setVideosClickKey(key){
+                    dispatch(actionCreators.setVideosClickKey(key))
+                    dispatch(actionCreators.changePage(5))
                 }
             }
         }

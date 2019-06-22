@@ -23,7 +23,7 @@ render(){
             <NewsDetailWrapper>
                 <NavBar
                 title="新闻详情"
-                func={()=>{changePage(1)}}
+                func={()=>{changePage(0)}}
                 />
                 <div style={{height:"45px"}}/>
                 <div className="wrapper">

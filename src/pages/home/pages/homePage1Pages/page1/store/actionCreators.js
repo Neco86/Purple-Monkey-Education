@@ -102,3 +102,21 @@ export const setCommentResult = (data)=>({
     type:actionTypes.SETCOMMENTRESULT,
     data:data,
 })
+export const setVideosClickKey = (data)=>({
+    type:actionTypes.SETVIDEOSCLICKKEY,
+    data:data,
+})
+export const getVideosDetail = (data)=>({
+    type:actionTypes.GETVIDEODETAIL,
+    data:data,
+})
+export const setVideosDetail = (data)=>({
+    type:actionTypes.SETVIDEODETAIL,
+    data:data,
+    time:data.time,
+    comments:data.comments
+})
+export const changeVideosCommetns = (newsComments,data,username,userImg,time)=>({
+    type:actionTypes.CHANGEVIDEOSCOMMENTS,
+    data:[...newsComments,{"username":username,"userImg":userImg,"time":time,"comment":data}]
+})

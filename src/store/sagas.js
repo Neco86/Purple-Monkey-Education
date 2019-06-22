@@ -271,6 +271,20 @@ function* getUserImg(param) {
       console.log('json请求失败');
   }
 }
+function* getVideosDetail(param) {
+  try {
+    const res=yield axios.get('/api/getVideosDetail',{
+            params:{
+                videosKey:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p1ActionCreators.setVideosDetail(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -289,6 +303,7 @@ function* mySaga() {
   yield takeEvery(h1p1ActionTypes.GETNEWSDETAIL, getNewsDetail);
   yield takeEvery(h1p1ActionTypes.POSTCOMMENT, postComment);
   yield takeEvery(h1p1ActionTypes.GETUSERIMG, getUserImg);
+  yield takeEvery(h1p1ActionTypes.GETVIDEODETAIL, getVideosDetail);
 }
 
 export default mySaga;
