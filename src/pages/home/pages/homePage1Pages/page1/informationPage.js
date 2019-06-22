@@ -35,7 +35,7 @@ render(){
                 </SearchDetailWrapper>
                 <SearchResultWrapper style={{backgroundColor:"white",paddingTop:"1px",paddingBottom:"1px",borderBottom:"1px solid #f2f2f2"}}>
                     <div className="result">相关课程</div>
-                    {course.map((item,index)=>(<Search key={index} item={item}/>))}
+                    {course.map((item,index)=>(<Search key={index} item={item} onClick={()=>{console.log("clicked "+item.key)}}/>))}
                 </SearchResultWrapper>
                 <SearchResultWrapper style={{backgroundColor:"white",paddingTop:"1px"}}>
                     <div className="result" style={{paddingBottom:"0px"}}>他的公告</div>

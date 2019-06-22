@@ -4,8 +4,8 @@ const defaultState=fromJS({
     newsList:[],
     videosList:[],
     search:"",
-    page:4,//0默认,其他为了方便调试:1搜索,2搜索-详情,3搜索-详情-资料,4新闻详情
-    tabPage:0,
+    page:0,//0默认,其他为了方便调试:1搜索,2搜索-详情,3搜索-详情-资料,4新闻详情
+    tabPage:1,//0默认,其他为了方便调试:0新闻 1视频
     searchResut:[],//搜索结果
     searchClickKey:"",//搜索结果点击的key
     searchDetail:{},//搜索结果详情
