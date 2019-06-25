@@ -1,4 +1,4 @@
-import React,{ PureComponent } from 'react'
+import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { HomePageWrapper } from './style'
@@ -9,7 +9,7 @@ import HomePage1Page2 from './page2'
 import HomePage1Page3 from './page3'
 import HomePage1Page4 from './page4'
 
-class HomePage1 extends PureComponent{
+class HomePage1 extends Component{
 render(){
         const { selectedTab,changeTab1,changeTab2,changeTab3,changeTab4 } = this.props;
          return(
@@ -69,6 +69,13 @@ render(){
             </HomePageWrapper>
         )
    
+}
+componentDidMount(){
+    window.addEventListener("popstate",()=>{window.history.pushState(null, '', '');},false);
+    window.history.pushState(null, '', '');
+}
+componentWillUnmount(){
+    window.removeEventListener("popstate",()=>{},false);
 }
 }
 const mapDispatchToProps=(dispatch)=>{

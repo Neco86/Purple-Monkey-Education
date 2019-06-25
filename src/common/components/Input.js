@@ -13,9 +13,9 @@ render(){
                     value={this.props.value}
                     onChange={(e)=>{this.props.onChange(e)}}
                     type={this.props.type}
-                    onFocus={()=>{this.props.onFocus()}}
-                    onBlur={()=>{this.props.onBlur()}}
-                    onKeyPress={(e)=>{this.props.onKeyPress(e)}}
+                    onFocus={()=>{this.props.onFocus?this.props.onFocus():console.log();}}
+                    onBlur={()=>{this.props.onBlur?this.props.onBlur():console.log();}}
+                    onKeyPress={(e)=>{this.props.onKeyPress?this.props.onKeyPress(e):console.log();}}
                     />
                     <span>{this.props.error}</span>
                 </div>

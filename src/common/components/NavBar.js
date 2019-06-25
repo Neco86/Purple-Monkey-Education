@@ -1,17 +1,22 @@
-import React,{ PureComponent } from 'react'
+import React,{ Component } from 'react'
 import { NavBarWrapper } from './style'
 
-class NavBar extends PureComponent{
+class NavBar extends Component{
 render(){
          return(
             <NavBarWrapper>
-                <div onClick={()=>{this.props.func()}}>
-                    <i className='iconfont'>&#xe646;</i>
-                    <span>{this.props.title}</span>
-                </div>
+                <i className='iconfont' onClick={()=>{this.props.func()}}>&#xe646;</i>
+                <span>{this.props.title}</span>
             </NavBarWrapper>
         )
    
+}
+componentDidMount(){
+    window.addEventListener("popstate", this.props.func,false);
+    window.history.pushState(null, '', '');
+}
+componentWillUnmount(){
+    window.removeEventListener("popstate", this.props.func,false);
 }
 }
 export default NavBar

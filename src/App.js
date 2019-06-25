@@ -1,7 +1,8 @@
 import React from 'react';
 import store from './store'
 import { Provider } from 'react-redux'
-import { BrowserRouter,Route } from 'react-router-dom'
+// import { BrowserRouter,Route } from 'react-router-dom'
+import { HashRouter,Route } from 'react-router-dom'
 import { GlobalStyle } from './style.js'
 import { GlobalIconStyle } from './statics/iconfont/iconfont.js'
 import Entry from './pages/entry'
@@ -15,12 +16,12 @@ function App() {
     <Provider store={store}>
         <GlobalStyle/>
         <GlobalIconStyle/>
-        <BrowserRouter>
+        <HashRouter>
             {<Route path='/' exact component={Entry}></Route>}
             {<Route path='/register' exact component={Register}></Route>}
             {<Route path='/login' exact component={Login}></Route>}
             {<Route path='/home' exact component={Home}></Route>}
-        </BrowserRouter>
+        </HashRouter>
     </Provider>
   );
 }

@@ -6,6 +6,7 @@ import { actionTypes as teacherRegisterActionTypes,actionCreators as teacherRegi
 import { actionTypes as studentRegisterActionTypes,actionCreators as studentRegisterActionCreators }   from '../pages/studentRegister/store'
 import { actionTypes as loginActionTypes,actionCreators as loginActionCreators }   from '../pages/login/store'
 import { actionTypes as h1p1ActionTypes,actionCreators as h1p1ActionCreators }   from '../pages/home/pages/homePage1Pages/page1/store'
+import { actionTypes as h1p2ActionTypes,actionCreators as h1p2ActionCreators }   from '../pages/home/pages/homePage1Pages/page2/store'
 
 function* getRegisterUserName(param) {
   try {
@@ -287,6 +288,46 @@ function* getVideosDetail(param) {
       console.log('json请求失败');
   }
 }
+function* getTry() {
+  try {
+    const res=yield axios.get('/api/getTry');
+    const resData=res.data
+    const action=h1p2ActionCreators.setTry(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* agree(param) {
+  try {
+    const res=yield axios.post('/api/agree',{
+            params:{
+                key1:param.key1,
+                key2:param.key2
+            }
+        });
+    const resData=res.data
+    const action=h1p2ActionCreators.setAgreeResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
+function* disAgree(param) {
+  try {
+    const res=yield axios.post('/api/disAgree',{
+            params:{
+                key1:param.key1,
+                key2:param.key2
+            }
+        });
+    const resData=res.data
+    const action=h1p2ActionCreators.setDisAgreeResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log('json请求失败');
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -306,6 +347,9 @@ function* mySaga() {
   yield takeEvery(h1p1ActionTypes.POSTCOMMENT, postComment);
   yield takeEvery(h1p1ActionTypes.GETUSERIMG, getUserImg);
   yield takeEvery(h1p1ActionTypes.GETVIDEODETAIL, getVideosDetail);
+  yield takeEvery(h1p2ActionTypes.GETTRY, getTry);
+  yield takeEvery(h1p2ActionTypes.AGREE, agree);
+  yield takeEvery(h1p2ActionTypes.DISAGREE, disAgree);
 }
 
 export default mySaga;

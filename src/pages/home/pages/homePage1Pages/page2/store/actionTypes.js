@@ -1,0 +1,6 @@
+export const GETTRY='home1/page2/getTryget'
+export const SETTRY='home1/page2/setTryget'
+export const AGREE='home1/page2/agree'
+export const DISAGREE='home1/page2/disAgree'
+export const SETAGREERESULT='home1/page2/setAgreeResult'
+export const SETDISAGREERESULT='home1/page2/setDisAgreeResult'

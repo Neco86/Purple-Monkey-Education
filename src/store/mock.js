@@ -101,8 +101,8 @@ Mock.mock(RegExp("/api/getNewsList"),'get',()=>{//新闻内容
               {
                 "key":"1",
                 "title":"1贸易争端加剧困境 美国农民：人生艰难，别再“豆”我了",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
-                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+                "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "username":"新华社新闻",
                 "time":["2019-06-05","18:24"],
                 "commentCount":"1"
@@ -110,8 +110,8 @@ Mock.mock(RegExp("/api/getNewsList"),'get',()=>{//新闻内容
               {
                 "key":"2",
                 "title":"2贸易争端加剧困境 美国农民：人生艰难，别再“豆”我了",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
-                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+                "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "username":"新华社新闻",
                 "time":["2019-06-05","18:24"],
                 "commentCount":"1"
@@ -119,8 +119,8 @@ Mock.mock(RegExp("/api/getNewsList"),'get',()=>{//新闻内容
               {
                 "key":"3",
                 "title":"3贸易争端加剧困境 美国农民：人生艰难，别再“豆”我了",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
-                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+                "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "username":"新华社新闻",
                 "time":["2019-06-05","18:24"],
                 "commentCount":"1"
@@ -135,24 +135,24 @@ Mock.mock(RegExp("/api/getVideosList"),'get',()=>{//视频内容
               {
                 "key":"1",
                 "title":"1贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
-                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+                "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "username":"新华社新闻",
                 "commentCount":"1"
               },
               {
                 "key":"2",
                 "title":"2贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
-                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+                "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "username":"新华社新闻",
                 "commentCount":"1"
               },
               {
                 "key":"3",
                 "title":"3贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
-                "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+                "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "username":"新华社新闻",
                 "commentCount":"1"
               }
@@ -166,21 +166,21 @@ Mock.mock(RegExp("/api/getSearchList.*"),'get',()=>{//搜索内容?search=xxx
               {
                 "key":"1",
                 "title":"1[周二开课]我要学产品-90天产品经理实战班(3天体验班)",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "cost":"0",
                 "person":"12"
               },
               {
                 "key":"2",
                 "title":"2贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "cost":"200",
                 "person":"35"
               },
               {
                 "key":"3",
                 "title":"3贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "cost":"300",
                 "person":"12"
               }
@@ -191,19 +191,19 @@ Mock.mock(RegExp("/api/getSearchDetail.*"),'get',()=>{//搜索内容详情?key=x
   return {
     "succ":true,
     "data":{
-      "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
       "title":"贸易争端加剧困境",
       "cost":"300",
       "person":"500",
       "grade":"5.0",
       "type":"type1",//教育机构type1,教师type2
-      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
       "username":"贸易争端",
       "userIntro":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境",
       "comments":[
       {
         "username":"aaaaa",
-        "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
         "time":["2019-0605","49:55"],
         "comment":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境"
       }
@@ -214,7 +214,7 @@ Mock.mock(RegExp("/api/getSearchDetail.*"),'get',()=>{//搜索内容详情?key=x
         "time":["2019-06-09","16:00","20分钟"],
         "des":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境贸易争端加剧困境",
         "fileName":"第一次作业.doc",
-        "fileSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg"
+        "fileSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
       }
       ]
     }
@@ -224,28 +224,28 @@ Mock.mock(RegExp("/api/getInformation.*"),'get',()=>{//搜索内容详情-资料
   return {
     "succ":true,
     "data":{
-      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
       "username":"贸易争端",
       "userIntro":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境",
       "course":[
               {
                 "key":"1",
                 "title":"1[周二开课]我要学产品-90天产品经理实战班(3天体验班)",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "cost":"0",
                 "person":"12"
               },
               {
                 "key":"2",
                 "title":"2贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "cost":"200",
                 "person":"35"
               },
               {
                 "key":"3",
                 "title":"3贸易争端加剧困境",
-                "imgSrc":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+                "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
                 "cost":"300",
                 "person":"12"
               }
@@ -259,14 +259,14 @@ Mock.mock(RegExp("/api/getNewsDetail.*"),'get',()=>{//新闻详情?newsKey=xxx
     "succ":true,
     "data":{
       "title":"贸易争端加剧困境",
-      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
       "username":"新华社新闻",
       "time":["2019-06-05","18:24"],
       "content":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境",
       "comments":[
       {
         "username":"aaaaa",
-        "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
         "time":["2019-0605","49:55"],
         "comment":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境"
       }
@@ -284,7 +284,7 @@ Mock.mock(RegExp("/api/postComment"),'post',(post)=>{//data发布的内容,usern
 Mock.mock(RegExp("/api/getUserImg"),'get',()=>{//?username=xxx
   return {
     "succ":true,
-    "data":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg"
+    "data":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
   }
 })
 Mock.mock(RegExp("/api/getVideosDetail"),'get',()=>{//?videosKey=xxx
@@ -292,18 +292,83 @@ Mock.mock(RegExp("/api/getVideosDetail"),'get',()=>{//?videosKey=xxx
     "succ":true,
     "data":{
       "title":"贸易争端加剧困境",
-      "videoSrc":"https://f.us.sinaimg.cn/00029qullx07uOTIDa4001041200RUE20E010.mp4?label=mp4_hd&template=852x480.28.0&Expires=1561179946&ssig=fOh1id3Kmc&KID=unistore,video",
-      "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+      "videoSrc":"https://media.w3.org/2010/05/sintel/trailer.mp4",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
       "username":"新华社新闻",
       "time":["2019-06-05","18:24"],
       "comments":[
       {
         "username":"aaaaa",
-        "userImg":"http://e0.ifengimg.com/10/2019/0618/C27FD4C00DFE944F58BBCD6AD90306C4F0C7A43C_size78_w1080_h720.jpeg",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
         "time":["2019-0605","49:55"],
         "comment":"贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境,贸易争端加剧困境"
       }
       ]
     }
+  }
+})
+Mock.mock(RegExp("/api/getTry"),'get',()=>{
+  return {
+    "succ":true,
+    "data":[
+    { "key":"1",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "title":"1贸易争端加剧困境",
+      "type":"生活·艺术",
+      "apply":[
+        {
+        "key":"1",
+        "username":"aaaaa1",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+      },
+      {
+        "key":"2",
+        "username":"aaaaa2",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+      },
+      {
+        "key":"3",
+        "username":"aaaaa3",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+      }
+      ]
+    },
+    { "key":"2",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "title":"2贸易争端加剧困境",
+      "type":"生活·艺术",
+      "apply":[
+        {
+        "key":"1",
+        "username":"aaaaa1",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+      },
+      {
+        "key":"2",
+        "username":"aaaaa2",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+      },
+      {
+        "key":"3",
+        "username":"aaaaa3",
+        "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+      }
+      ]
+    }
+    ]
+  }
+})
+Mock.mock(RegExp("/api/agree"),'post',(post)=>{//试听同意
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true同意结果成功
+  }
+})
+Mock.mock(RegExp("/api/disAgree"),'post',(post)=>{//试听同意
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true拒绝结果成功
   }
 })

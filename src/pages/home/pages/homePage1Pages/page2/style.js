@@ -1,0 +1,74 @@
+import styled from 'styled-components'
+export const TryWrapper = styled.div`
+    height:100%;
+    width:100%; 
+    .tryItem{
+        overflow:hidden;  
+        width:100%;
+        border-top:1px solid #f2f2f2;
+        background-color:white;
+        padding:10px;
+        .top{
+            overflow:hidden;
+            img{
+                width:160px;
+                height:80px;
+                display:block;
+                float:left;
+                margin-right:20px;
+            }
+            .right{
+                float:left;
+                margin-top:5px;
+                .title{
+                    font-size:18px;
+                    margin-bottom:10px;
+                }
+
+            }
+            margin-bottom:10px;
+        }
+        .bottom{
+            padding-left:30px;
+            line-height:20px;
+            img{
+                width:20px;
+                height:20px;
+                border-radius:50%;
+                display:inline-block;
+                margin-right:10px;
+                position:relative;
+                top:4px;
+            }
+            .right{
+                float:right;
+                .button1{
+                    width:45px;
+                    text-align:center;
+                    height:20px;
+                    line-height:20px;
+                    border-radius:5px;
+                    color:#cc99ff;
+                    border:1px solid #cc99ff;
+                    display:inline-block;
+                    margin-right:20px;
+                    position:relative;
+                    top:4px;
+                }
+                .button2{
+                    width:45px;
+                    text-align:center;
+                    height:20px;
+                    line-height:20px;
+                    border-radius:5px;
+                    color:#d9001b;
+                    border:1px solid #d9001b;
+                    display:inline-block;
+                    margin-right:15px;
+                    position:relative;
+                    top:4px;
+                }
+            }
+        }
+    }
+`
