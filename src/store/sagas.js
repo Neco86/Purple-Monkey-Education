@@ -8,9 +8,11 @@ import { actionTypes as loginActionTypes,actionCreators as loginActionCreators }
 import { actionTypes as h1p1ActionTypes,actionCreators as h1p1ActionCreators }   from '../pages/home/pages/homePage1Pages/page1/store'
 import { actionTypes as h1p2ActionTypes,actionCreators as h1p2ActionCreators }   from '../pages/home/pages/homePage1Pages/page2/store'
 
+import settings from './settings';
+const Url = settings.url;
 function* getRegisterUserName(param) {
   try {
-    const res=yield axios.get('/api/registerUserName', {
+    const res=yield axios.get(`${Url}/registerUserName`, {
             params:{
                 username : param.data
             }
@@ -19,22 +21,22 @@ function* getRegisterUserName(param) {
     const action=registerActionCreators.usernameIsDouble(data.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getGroupRegisterEduArea() {
   try {
-    const res=yield axios.get('/api/getEducationArea');
+    const res=yield axios.get(`${Url}/getEducationArea`);
     const data=res.data
     const action=groupRegisterActionCreators.setEducationArea(data.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getGroupNameBottom(param) {
   try {
-    const res=yield axios.get('/api/groupNameBottom', {
+    const res=yield axios.get(`${Url}/groupNameBottom`, {
             params:{
                 username : param.data
             }
@@ -43,17 +45,17 @@ function* getGroupNameBottom(param) {
     const action=groupRegisterActionCreators.setGroupNameBottom(data.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getProvince() {
   try {
-    const res=yield axios.get('/api/getProvince');
+    const res=yield axios.get(`${Url}/getProvince`);
     const data=res.data
     const action=groupRegisterActionCreators.setProvince(data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* groupRegisterFinish(data) {
@@ -73,19 +75,19 @@ function* groupRegisterFinish(data) {
         ageH:param.ageH,//适龄上线
         intro:param.intro//简介
     }
-    const res=yield axios.post('/api/groupRegisterFinish', {
+    const res=yield axios.post(`${Url}/groupRegisterFinish`, {
             params:params
         });
     const resData=res.data
     const action=groupRegisterActionCreators.groupRegisterResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getTeacherRegisterPID(param) {
   try {
-    const res=yield axios.get('/api/teacherID', {
+    const res=yield axios.get(`${Url}/teacherID`, {
             params:{
                 username : param.data
             }
@@ -94,7 +96,7 @@ function* getTeacherRegisterPID(param) {
     const action=teacherRegisterActionCreators.setPersonIDBottom(data.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getTeacherRegisterResult(data) {
@@ -116,14 +118,14 @@ function* getTeacherRegisterResult(data) {
         tel:param.tel,//联系方式
         intro:param.intro//简介
     }
-    const res=yield axios.post('/api/teacherRegisterFinish', {
+    const res=yield axios.post(`${Url}/teacherRegisterFinish`, {
             params:params
         });
     const resData=res.data
     const action=teacherRegisterActionCreators.teacherRegisterResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getStudentRegisterResult(data) {
@@ -140,14 +142,14 @@ function* getStudentRegisterResult(data) {
         eduArea:param.eduAreaChoose,//详细地址
         place:param.provinceChoose//店面地址
     }
-    const res=yield axios.post('/api/studentRegisterFinish', {
+    const res=yield axios.post(`${Url}/studentRegisterFinish`, {
             params:params
         });
     const resData=res.data
     const action=studentRegisterActionCreators.studentRegisterResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getLogin(param) {
@@ -156,39 +158,39 @@ function* getLogin(param) {
         username : param.username,//用户名
         password:param.password,//密码
     }
-    const res=yield axios.post('/api/login', {
+    const res=yield axios.post(`${Url}/login`, {
             params:params
         });
     const resData=res.data
     const action=loginActionCreators.loginResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getNewsList() {
   try {
-    const res=yield axios.get('/api/getNewsList');
+    const res=yield axios.get(`${Url}/getNewsList`);
     const resData=res.data
     const action=h1p1ActionCreators.setNewsList(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getVideosList() {
   try {
-    const res=yield axios.get('/api/getVideosList');
+    const res=yield axios.get(`${Url}/getVideosList`);
     const resData=res.data
     const action=h1p1ActionCreators.setVideosList(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getSearchList(param) {
   try {
-    const res=yield axios.get('/api/getSearchList',{
+    const res=yield axios.get(`${Url}/getSearchList`,{
             params:{
                 search : param.data
             }
@@ -197,12 +199,12 @@ function* getSearchList(param) {
     const action=h1p1ActionCreators.setSearchList(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getSearchDetail(param) {
   try {
-    const res=yield axios.get('/api/getSearchDetail',{
+    const res=yield axios.get(`${Url}/getSearchDetail`,{
             params:{
                 key : param.data
             }
@@ -211,12 +213,12 @@ function* getSearchDetail(param) {
     const action=h1p1ActionCreators.setSearchDetail(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getInformation(param) {
   try {
-    const res=yield axios.get('/api/getInformation',{
+    const res=yield axios.get(`${Url}/getInformation`,{
             params:{
                 username : param.data
             }
@@ -225,12 +227,12 @@ function* getInformation(param) {
     const action=h1p1ActionCreators.setInformation(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getNewsDetail(param) {
   try {
-    const res=yield axios.get('/api/getNewsDetail',{
+    const res=yield axios.get(`${Url}/getNewsDetail`,{
             params:{
                 newsKey : param.data
             }
@@ -239,12 +241,12 @@ function* getNewsDetail(param) {
     const action=h1p1ActionCreators.setNewsDetail(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* postComment(param) {
   try {
-    const res=yield axios.post('/api/postComment',{
+    const res=yield axios.post(`${Url}/postComment`,{
             params:{
                 data : param.data,
                 username:param.username,
@@ -257,12 +259,12 @@ function* postComment(param) {
     const action=h1p1ActionCreators.postCommentResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getUserImg(param) {
   try {
-    const res=yield axios.get('/api/getUserImg',{
+    const res=yield axios.get(`${Url}/getUserImg`,{
             params:{
                 username:param.data
             }
@@ -271,12 +273,12 @@ function* getUserImg(param) {
     const action=h1p1ActionCreators.setUserImg(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getVideosDetail(param) {
   try {
-    const res=yield axios.get('/api/getVideosDetail',{
+    const res=yield axios.get(`${Url}/getVideosDetail`,{
             params:{
                 videosKey:param.data
             }
@@ -285,22 +287,22 @@ function* getVideosDetail(param) {
     const action=h1p1ActionCreators.setVideosDetail(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* getTry() {
   try {
-    const res=yield axios.get('/api/getTry');
+    const res=yield axios.get(`${Url}/getTry`);
     const resData=res.data
     const action=h1p2ActionCreators.setTry(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* agree(param) {
   try {
-    const res=yield axios.post('/api/agree',{
+    const res=yield axios.post(`${Url}/agree`,{
             params:{
                 key1:param.key1,
                 key2:param.key2
@@ -310,12 +312,12 @@ function* agree(param) {
     const action=h1p2ActionCreators.setAgreeResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* disAgree(param) {
   try {
-    const res=yield axios.post('/api/disAgree',{
+    const res=yield axios.post(`${Url}/disAgree`,{
             params:{
                 key1:param.key1,
                 key2:param.key2
@@ -325,7 +327,7 @@ function* disAgree(param) {
     const action=h1p2ActionCreators.setDisAgreeResult(resData.data)
     yield put(action)
   }catch(e){
-      console.log('json请求失败');
+      console.log(`json请求失败`);
   }
 }
 function* mySaga() {

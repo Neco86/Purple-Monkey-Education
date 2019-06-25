@@ -1,18 +1,18 @@
 import Mock from 'mockjs'
 
-Mock.mock(RegExp("/api/registerUserName.*"),'get',{//判断用户名是否重名?username=xxx
+Mock.mock(RegExp("/registerUserName.*"),'get',{//判断用户名是否重名?username=xxx
     "succ":true,
     "data":false//true用户名重名
 })
-Mock.mock(RegExp("/api/getEducationArea"),'get',{//获取教育领域或选课意向
+Mock.mock(RegExp("/getEducationArea"),'get',{//获取教育领域或选课意向
     "succ":true,
     "data":["IT·互联网","设计·创作","电商·营销","职业·考证","升学·考研","兴趣·生活","语言·留学"]
 })
-Mock.mock(RegExp("/api/groupNameBottom.*"),'get',{//判断机构名是否重名?username=xxx
+Mock.mock(RegExp("/groupNameBottom.*"),'get',{//判断机构名是否重名?username=xxx
     "succ":true,
     "data":false//true机构名重名
 })
-Mock.mock(RegExp("/api/getProvince"),'get',{//获取店面地址
+Mock.mock(RegExp("/getProvince"),'get',{//获取店面地址
     "succ":true,
     "data":[
           {
@@ -60,32 +60,32 @@ Mock.mock(RegExp("/api/getProvince"),'get',{//获取店面地址
         ],
     "defaultChoose":["浙江","杭州","上城区"]
 })
-Mock.mock(RegExp("/api/groupRegisterFinish"),'post',(post)=>{//教育机构注册是否成功
+Mock.mock(RegExp("/groupRegisterFinish"),'post',(post)=>{//教育机构注册是否成功
   console.log(post.body)
   return {
     "succ":true,
     "data":true//true注册成功
   }
 })
-Mock.mock(RegExp("/api/teacherID.*"),'get',{//身份证号是否已经注册?username=xxx
+Mock.mock(RegExp("/teacherID.*"),'get',{//身份证号是否已经注册?username=xxx
     "succ":true,
     "data":false//true身份证已经注册
 })
-Mock.mock(RegExp("/api/teacherRegisterFinish"),'post',(post)=>{//个人教师注册是否成功
+Mock.mock(RegExp("/teacherRegisterFinish"),'post',(post)=>{//个人教师注册是否成功
   console.log(post.body)
   return {
     "succ":true,
     "data":true//true注册成功
   }
 })
-Mock.mock(RegExp("/api/studentRegisterFinish"),'post',(post)=>{//学生家长注册是否成功
+Mock.mock(RegExp("/studentRegisterFinish"),'post',(post)=>{//学生家长注册是否成功
   console.log(post.body)
   return {
     "succ":true,
     "data":true//true注册成功
   }
 })
-Mock.mock(RegExp("/api/login"),'post',(post)=>{//登录
+Mock.mock(RegExp("/login"),'post',(post)=>{//登录
   console.log(post.body)
   return {
     "succ":true,
@@ -94,7 +94,7 @@ Mock.mock(RegExp("/api/login"),'post',(post)=>{//登录
     //type1个人教师/教育机构,type2学生家长
   }
 })
-Mock.mock(RegExp("/api/getNewsList"),'get',()=>{//新闻内容
+Mock.mock(RegExp("/getNewsList"),'get',()=>{//新闻内容
   return {
     "succ":true,
     "data":[
@@ -128,7 +128,7 @@ Mock.mock(RegExp("/api/getNewsList"),'get',()=>{//新闻内容
           ]
   }
 })
-Mock.mock(RegExp("/api/getVideosList"),'get',()=>{//视频内容
+Mock.mock(RegExp("/getVideosList"),'get',()=>{//视频内容
   return {
     "succ":true,
     "data":[
@@ -159,7 +159,7 @@ Mock.mock(RegExp("/api/getVideosList"),'get',()=>{//视频内容
           ]
   }
 })
-Mock.mock(RegExp("/api/getSearchList.*"),'get',()=>{//搜索内容?search=xxx
+Mock.mock(RegExp("/getSearchList.*"),'get',()=>{//搜索内容?search=xxx
   return {
     "succ":true,
     "data":[
@@ -187,7 +187,7 @@ Mock.mock(RegExp("/api/getSearchList.*"),'get',()=>{//搜索内容?search=xxx
           ]
   }
 })
-Mock.mock(RegExp("/api/getSearchDetail.*"),'get',()=>{//搜索内容详情?key=xxx
+Mock.mock(RegExp("/getSearchDetail.*"),'get',()=>{//搜索内容详情?key=xxx
   return {
     "succ":true,
     "data":{
@@ -220,7 +220,7 @@ Mock.mock(RegExp("/api/getSearchDetail.*"),'get',()=>{//搜索内容详情?key=x
     }
   }
 })
-Mock.mock(RegExp("/api/getInformation.*"),'get',()=>{//搜索内容详情-资料?username=xxx
+Mock.mock(RegExp("/getInformation.*"),'get',()=>{//搜索内容详情-资料?username=xxx
   return {
     "succ":true,
     "data":{
@@ -254,7 +254,7 @@ Mock.mock(RegExp("/api/getInformation.*"),'get',()=>{//搜索内容详情-资料
     }
   }
 })
-Mock.mock(RegExp("/api/getNewsDetail.*"),'get',()=>{//新闻详情?newsKey=xxx
+Mock.mock(RegExp("/getNewsDetail.*"),'get',()=>{//新闻详情?newsKey=xxx
   return {
     "succ":true,
     "data":{
@@ -274,20 +274,20 @@ Mock.mock(RegExp("/api/getNewsDetail.*"),'get',()=>{//新闻详情?newsKey=xxx
     }
   }
 })
-Mock.mock(RegExp("/api/postComment"),'post',(post)=>{//data发布的内容,username发布者
+Mock.mock(RegExp("/postComment"),'post',(post)=>{//data发布的内容,username发布者
   console.log(post.body)
   return {
     "succ":true,
     "data":true//true发布成功
   }
 })
-Mock.mock(RegExp("/api/getUserImg"),'get',()=>{//?username=xxx
+Mock.mock(RegExp("/getUserImg"),'get',()=>{//?username=xxx
   return {
     "succ":true,
     "data":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
   }
 })
-Mock.mock(RegExp("/api/getVideosDetail"),'get',()=>{//?videosKey=xxx
+Mock.mock(RegExp("/getVideosDetail"),'get',()=>{//?videosKey=xxx
   return {
     "succ":true,
     "data":{
@@ -307,7 +307,7 @@ Mock.mock(RegExp("/api/getVideosDetail"),'get',()=>{//?videosKey=xxx
     }
   }
 })
-Mock.mock(RegExp("/api/getTry"),'get',()=>{
+Mock.mock(RegExp("/getTry"),'get',()=>{
   return {
     "succ":true,
     "data":[
@@ -358,14 +358,14 @@ Mock.mock(RegExp("/api/getTry"),'get',()=>{
     ]
   }
 })
-Mock.mock(RegExp("/api/agree"),'post',(post)=>{//试听同意
+Mock.mock(RegExp("/agree"),'post',(post)=>{//试听同意
   console.log(post.body)
   return {
     "succ":true,
     "data":true//true同意结果成功
   }
 })
-Mock.mock(RegExp("/api/disAgree"),'post',(post)=>{//试听同意
+Mock.mock(RegExp("/disAgree"),'post',(post)=>{//试听同意
   console.log(post.body)
   return {
     "succ":true,
