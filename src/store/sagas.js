@@ -158,7 +158,7 @@ function* getLogin(param) {
         username : param.username,//用户名
         password:param.password,//密码
     }
-    const res=yield axios.post(`${Url}/login`, {
+    const res=yield axios.post(`${Url}/login/`, {
             params:params
         });
     const resData=res.data
