@@ -116,5 +116,85 @@ export const getPage3CourseDetail = (data)=>({
 })
 export const setPage3CourseDetail = (data)=>({
     type:actionTypes.SETPAGE3COURSEDETAIL,
+    data:data,
+    key:data[0].key,
+    courseName:data[0].courseName,
+    place:data[0].place,
+    time:data[0].time,
+    long:data[0].long,
+    teacher:data[0].teacher,
+    homeWork:data[0].homeWork
+})
+export const changeICourseName = (data)=>({
+    type:actionTypes.CHANGEICOURSENAME,
     data:data
+})
+export const chanegIPlace = (data)=>({
+    type:actionTypes.CHANGEIPLACE,
+    data:data
+})
+export const changeITime = (data)=>({
+    type:actionTypes.CHANGEITIME,
+    data:data
+})
+export const changeILong = (data)=>({
+    type:actionTypes.CHANGEILONG,
+    data:data
+})
+export const changeITeacher = (data)=>({
+    type:actionTypes.CHANGEITEACHER,
+    data:data
+})
+export const changeIWork = (data)=>({
+    type:actionTypes.CHANGEIWORK,
+    data:data
+})
+export const clearAllI = ()=>({
+    type:actionTypes.CLEARALLI
+})
+export const changeITab = (index)=>({
+    type:actionTypes.CHANGEITAB,
+    data:index
+})
+export const changeIKey = (data)=>({
+    type:actionTypes.CHANGEIKEY,
+    data:data
+})
+export const deleteCourseDetail=(data,key1,key2)=>({
+    type:actionTypes.DELETECOURSEDETAIL,
+    data:data,//data为删除之后内容
+    key1:key1,//所选课程的key
+    key2:key2//课程第几次的key
+})
+export const setDeleteIResult = (data)=>({
+    type:actionTypes.SETDELETEIRESULT,
+    data:data
+})
+export const changeCourseDetail = (data,key1,key2)=>({
+    type:actionTypes.CHANGECOURSEDETAIL,
+    data:data,//data为修改之后内容
+    key1:key1,//所选课程的key
+    key2:key2//课程第几次的key
+})
+export const setChangeIResult = (data)=>({
+    type:actionTypes.SETCHANGEIRESULT,
+    data:data
+})
+export const changeError = (data,key)=>({
+    type:actionTypes.CHANGEERROR,
+    data:data,
+    key:key
+})
+export const addCourse=(courseDetail,newItem,key1)=>({
+    type:actionTypes.ADDCOURSE,
+    data:newItem,//添加的小课
+    key:key1,//添加小课从属大课的key
+    courseDetail:courseDetail//添加之后的
+})
+export const setAddCourseIResult=(data)=>({
+    type:actionTypes.SETADDCOURSEIRESULT,
+    data:data
+})
+export const changeINext=()=>({
+    type:actionTypes.CHANGEINEXT
 })

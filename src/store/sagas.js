@@ -441,6 +441,52 @@ function* getPage3CourseDetail(param) {
       console.log(`json请求失败`);
   }
 }
+function* deleteCourseDetail(param) {
+  try {
+    const res=yield axios.post(`${Url}/deleteCourseDetail/`,{
+            params:{
+                key1:param.key1,
+                key2:param.key2
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setDeleteIResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* changeCourseDetail(param) {
+  try {
+    const res=yield axios.post(`${Url}/changeCourseDetail/`,{
+            params:{
+                data:param.data,//修改之后的所有课程的内容
+                key1:param.key1,
+                key2:param.key2
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setChangeIResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* addCourse(param) {
+  try {
+    const res=yield axios.post(`${Url}/addCourse/`,{
+            params:{
+                data:param.data,//新增的小课
+                key:param.key//小课隶属大课key
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setAddCourseIResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -470,6 +516,9 @@ function* mySaga() {
   yield takeEvery(h1p3ActionTypes.GETFIXCOURSE, getFixCourse);
   yield takeEvery(h1p3ActionTypes.FIXCOURSEFINISH, fixCourseFinish);
   yield takeEvery(h1p3ActionTypes.GETPAGE3COURSEDETAIL, getPage3CourseDetail);
+  yield takeEvery(h1p3ActionTypes.DELETECOURSEDETAIL, deleteCourseDetail);
+  yield takeEvery(h1p3ActionTypes.CHANGECOURSEDETAIL, changeCourseDetail);
+  yield takeEvery(h1p3ActionTypes.ADDCOURSE, addCourse);
 }
 
 export default mySaga;

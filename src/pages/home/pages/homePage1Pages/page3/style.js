@@ -124,4 +124,33 @@ export const CourseDetailWrapper = styled.div`
     .am-tabs-default-bar,.am-tabs-default-bar-animated,.am-tabs-default-bar-left{
         background-color:#f9f9f9 !important;
     }
+    .inputWrapper{
+        padding-top:10px;
+        background-color:white;
+    }
+`
+export const Button1Wrapper = styled.div`
+    text-align:center;
+    padding-top:25px;
+    .button{
+        display:inline-block;
+        width:75px;
+        border-radius:5px;
+        color:white;
+        height:30px;
+        line-height:30px;
+        margin:0 10px;
+    }
+`
+export const Button2Wrapper = styled.div`
+    text-align:center;
+    padding-top:25px;
+    .button{
+        display:inline-block;
+        width:170px;
+        color:white;
+        height:30px;
+        line-height:30px;
+        background-color:#c9f;
+    }
 `

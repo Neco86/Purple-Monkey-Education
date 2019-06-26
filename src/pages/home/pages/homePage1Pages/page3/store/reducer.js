@@ -22,13 +22,40 @@ const defaultState=fromJS({
     fixCourseResult:false,
     //page3-查看课程
     seeKey:"",//默认空
-    courseDetail:[]
+    courseDetail:[],
+    //CourseItem
+    iCourseName:"",
+    iPlace:"",
+    iTime:"",
+    iLong:"",
+    iTeacher:"",
+    iWork:"",
+    iTabPage:0,
+    iKey:"",
+    deleteIResult:false,
+    changeIResult:false,
+    error:"",
+    addIResult:false,
+    iNext:false
+
 })
+const getINext=(state)=>{
+    return ((state.get("iCourseName")!=="")&&(!state.get("iPlace")!=="")
+    &&(state.get("iTime")!=="")&&(state.get("iLong")!=="")
+    &&(!state.get("iTeacher"!==""))&&(state.get("iWork")!==""))
+}
 const getChange=(state)=>{
     return ((state.get("courseName")!=="")&&(!state.get("eduArea")!=="")
     &&(state.get("ageL")!=="")&&(state.get("ageH")!=="")
     &&(!state.get("money"!==""))&&(state.get("month")!=="")
     &&(state.get("picValue")!==""))
+}
+const getError=(iCourseName,key,state)=>{
+    var list=state.get("courseDetail");
+    for (var i in list)
+        if (list[i].courseName===iCourseName&&list[i].key!==key)
+            return "课程名已存在"
+    return ""
 }
 export default (state=defaultState,action)=>{
     switch (action.type){
@@ -77,7 +104,41 @@ export default (state=defaultState,action)=>{
         case actionTypes.SETFIXCOURSERESULT:
             return state.set("fixCourseResult",action.data)
         case actionTypes.SETPAGE3COURSEDETAIL:
+            return state.merge({"courseDetail":action.data,"iKey":action.key,"iCourseName":action.courseName,"iPlace":action.place,"iTime":action.time,"iLong":action.long,"iTeacher":action.teacher,"iWork":action.homeWork})
+        case actionTypes.CHANGEIWORK:
+            return state.set("iWork",action.data)
+        case actionTypes.CHANGEITIME:
+            return state.set("iTime",action.data)
+        case actionTypes.CHANGEITEACHER:
+            return state.set("iTeacher",action.data)
+        case actionTypes.CHANGEIPLACE:
+            return state.set("iPlace",action.data)
+        case actionTypes.CHANGEILONG:
+            return state.set("iLong",action.data)
+        case actionTypes.CHANGEICOURSENAME:
+            return state.set("iCourseName",action.data)
+        case actionTypes.CLEARALLI:
+            return state.merge({"iWork":"","iTime":"","iTeacher":"","iPlace":"","iLong":"","iCourseName":""})
+        case actionTypes.CHANGEITAB:
+            return state.set("iTabPage",action.data)
+        case actionTypes.CHANGEIKEY:
+            return state.set("iKey",action.data)
+        case actionTypes.DELETECOURSEDETAIL:
             return state.set("courseDetail",action.data)
+        case actionTypes.SETDELETEIRESULT:
+            return state.set("deleteIResult",action.data)
+        case actionTypes.CHANGECOURSEDETAIL:
+            return state.set("courseDetail",action.data)
+        case actionTypes.SETCHANGEIRESULT:
+            return state.set("changeIResult",action.data)
+        case actionTypes.CHANGEERROR:
+            return state.set("error",getError(action.data,action.key,state))
+        case actionTypes.ADDCOURSE:
+            return state.set("courseDetail",action.courseDetail)
+        case actionTypes.SETADDCOURSEIRESULT:
+            return state.set("addIResult",action.data)
+        case actionTypes.CHANGEINEXT:
+            return state.set("iNext",getINext(state))
         default: 
             return state
     }
