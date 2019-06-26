@@ -70,3 +70,7 @@ export const setAddCourseResult = (data)=>({
 export const clearAll = ()=>({
     type:actionTypes.CLEARALL
 })
+export const changePicValue = (data)=>({
+    type:actionTypes.CHANGEPICVALUE,
+    data:data
+})

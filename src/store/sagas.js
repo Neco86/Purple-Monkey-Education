@@ -366,8 +366,9 @@ function* addCourseFinish(data) {
                 ageL:param.ageL,
                 ageH:param.ageH,
                 money:param.money,
-                month:param.month
-                // pic:param.pic
+                month:param.month,
+                pic:param.pic,
+                picValue:param.picValue
             }
         });
     const resData=res.data

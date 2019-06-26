@@ -128,6 +128,11 @@ const mapDispatchToProps=(dispatch)=>{
                     dispatch(actionCreators.changeNext())
                 },
                 changePic(e){
+                    var reader = new FileReader();
+                    reader.readAsDataURL(e.target.files[0]) 
+                    reader.onload = function(e) {
+                        dispatch(actionCreators.changePicValue(e.target.result))
+                    }
                     dispatch(actionCreators.changePic(e.target.value))
                     dispatch(actionCreators.changeNext())
                 },
@@ -155,6 +160,7 @@ const mapStateToProps=(state)=>{
         pic:state.getIn(['h1p3','pic']),
         next:state.getIn(['h1p3','next']),
         addCourseResult:state.getIn(['h1p3','addCourseResult']),
+        picValue:state.getIn(['h1p3','picValue']),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(AddNewCourse));

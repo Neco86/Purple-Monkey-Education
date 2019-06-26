@@ -12,7 +12,8 @@ const defaultState=fromJS({
     ageH:"",
     money:"",
     month:"",
-    pic:"",
+    pic:"",//文件名称
+    picValue:"",//文件内容
     next:false,
     addCourseResult:false
 })
@@ -54,8 +55,10 @@ export default (state=defaultState,action)=>{
             return state.set("next",getChange(state))
         case actionTypes.SETADDCOURSERESULT:
             return state.set("addCourseResult",action.data)
+        case actionTypes.CHANGEPICVALUE:
+            return state.set("picValue",action.data)
         case actionTypes.CLEARALL:
-            return state.merge({"courseName":"","eduArea":"","ageL":"","ageH":"","money":"","month":"","pic":"","next":false})
+            return state.merge({"courseName":"","eduArea":"","ageL":"","ageH":"","money":"","month":"","pic":"","picValue":"","next":false})
         default: 
             return state
     }
