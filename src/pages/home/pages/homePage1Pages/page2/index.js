@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { actionCreators } from './store'
 import { TryWrapper } from './style'
 import Alert from '../../../../../common/components/Alert'
+import NoItem from '../../../components/NoItem'
 
 class HomePage1Page2 extends Component{
 render(){
@@ -27,6 +28,11 @@ render(){
                                     </div>
                                 </div>))}
                     </div>)) }
+                {tryList.length===0?
+                    <div style={{overflow:"hidden",position:"relative",top:"20%"}}> 
+                        <NoItem content={["暂无试听申请"]}/>
+                    </div>
+                    :null}
                 {agreeResult?<Alert 
                     icon="&#xe657;" 
                     iconColor="#18fb28"  

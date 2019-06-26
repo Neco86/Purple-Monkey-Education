@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes'
 const { fromJS } = require('immutable')
 const defaultState=fromJS({
-    selectedTab:"tab1"//默认tab1,其他为调试使用
+    selectedTab:"tab3"//默认tab1,其他为调试使用
 })
 
 export default (state=defaultState,action)=>{

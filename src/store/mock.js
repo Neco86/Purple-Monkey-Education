@@ -372,3 +372,37 @@ Mock.mock(RegExp("/disAgree"),'post',(post)=>{//试听同意
     "data":true//true拒绝结果成功
   }
 })
+Mock.mock(RegExp("/getMyCourseList"),'get',()=>{//课程列表
+  return {
+    "succ":true,
+    "data":[
+    {
+      "key":"1",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "title":"1贸易争端加剧困境",
+      "type":"生活·艺术",
+      "time":"2019-6-17"
+    },
+    {
+      "key":"2",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "title":"2贸易争端加剧困境",
+      "type":"生活·艺术",
+      "time":"2019-6-17"
+    }
+    ]
+  }
+})
+Mock.mock(RegExp("/deleteCourse.*"),'get',()=>{//删除课程?key=xxx
+  return {
+    "succ":true,
+    "data":true//true删除成功
+  }
+})
+Mock.mock(RegExp("/addCourseFinish"),'post',(post)=>{//添加课程是否成功
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true添加成功
+  }
+})

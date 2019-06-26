@@ -7,6 +7,7 @@ import { actionTypes as studentRegisterActionTypes,actionCreators as studentRegi
 import { actionTypes as loginActionTypes,actionCreators as loginActionCreators }   from '../pages/login/store'
 import { actionTypes as h1p1ActionTypes,actionCreators as h1p1ActionCreators }   from '../pages/home/pages/homePage1Pages/page1/store'
 import { actionTypes as h1p2ActionTypes,actionCreators as h1p2ActionCreators }   from '../pages/home/pages/homePage1Pages/page2/store'
+import { actionTypes as h1p3ActionTypes,actionCreators as h1p3ActionCreators }   from '../pages/home/pages/homePage1Pages/page3/store'
 
 import settings from './settings';
 const Url = settings.url;
@@ -330,6 +331,52 @@ function* disAgree(param) {
       console.log(`json请求失败`);
   }
 }
+function* getMyCourseList() {
+  try {
+    const res=yield axios.get(`${Url}/getMyCourseList/`);
+    const resData=res.data
+    const action=h1p3ActionCreators.setMyCourseList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* deleteCourse(param) {
+  try {
+    const res=yield axios.get(`${Url}/deleteCourse/`,{
+            params:{
+                key:param.key
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.deleteCourseResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* addCourseFinish(data) {
+  try {
+    var param=data.data;
+    const res=yield axios.post(`${Url}/addCourseFinish/`,{
+            params:{
+                username:param.username,
+                courseName:param.courseName,
+                eduArea:param.eduArea,
+                ageL:param.ageL,
+                ageH:param.ageH,
+                money:param.money,
+                month:param.month
+                // pic:param.pic
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setAddCourseResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -352,6 +399,9 @@ function* mySaga() {
   yield takeEvery(h1p2ActionTypes.GETTRY, getTry);
   yield takeEvery(h1p2ActionTypes.AGREE, agree);
   yield takeEvery(h1p2ActionTypes.DISAGREE, disAgree);
+  yield takeEvery(h1p3ActionTypes.GETCOURSELIST, getMyCourseList);
+  yield takeEvery(h1p3ActionTypes.DELETECOURSE, deleteCourse);
+  yield takeEvery(h1p3ActionTypes.ADDCOURSEFINISH, addCourseFinish);
 }
 
 export default mySaga;
