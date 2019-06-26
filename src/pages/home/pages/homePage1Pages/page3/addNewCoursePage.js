@@ -1,4 +1,4 @@
-import React,{ PureComponent } from 'react'
+import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import NavBar from '../../../../../common/components/NavBar'
@@ -8,7 +8,7 @@ import Alert from '../../../../../common/components/Alert'
 import { actionCreators } from './store'
 import { AddNewCourseWrapper,SelectWrapper } from './style'
 import { Button2 } from '../../../../../common/style'
-class AddNewCourse extends PureComponent{
+class AddNewCourse extends Component{
 render(){
         const { changePage,
             courseName,changeCourseName,
@@ -18,7 +18,8 @@ render(){
             ageL,changeAgeL,
             ageH,changeAgeH,
             pic,changePic,addCourseFinish,
-            next,addCourseResult,setAddCourseResult
+            next,addCourseResult,setAddCourseResult,
+            list
              } = this.props;
          return(
             <AddNewCourseWrapper>
@@ -35,7 +36,7 @@ render(){
                     <SelectWrapper>
                         <Select
                         title="教育领域:"
-                        list={["xx","yy"]}
+                        list={list}
                         placeholder="请选择教育领域"
                         value={eduArea}
                         onChange={(data)=>{changeEduArea(data)}}
@@ -96,6 +97,12 @@ render(){
         )
    
 }
+componentDidMount(){
+    this.props.getList()
+}
+componentWillUnmount(){
+    this.props.clearAll()
+}
 }
 const mapDispatchToProps=(dispatch)=>{
             return {
@@ -132,6 +139,7 @@ const mapDispatchToProps=(dispatch)=>{
                     reader.readAsDataURL(e.target.files[0]) 
                     reader.onload = function(e) {
                         dispatch(actionCreators.changePicValue(e.target.result))
+                        dispatch(actionCreators.changeNext())
                     }
                     dispatch(actionCreators.changePic(e.target.value))
                     dispatch(actionCreators.changeNext())
@@ -144,6 +152,12 @@ const mapDispatchToProps=(dispatch)=>{
                     dispatch(actionCreators.clearAll())
                     dispatch(actionCreators.changePage(0))
                     dispatch(actionCreators.getMyCourseList())
+                },
+                getList(){
+                    dispatch(actionCreators.getList())
+                },
+                clearAll(){
+                    dispatch(actionCreators.clearAll())
                 }
 
             }
@@ -161,6 +175,7 @@ const mapStateToProps=(state)=>{
         next:state.getIn(['h1p3','next']),
         addCourseResult:state.getIn(['h1p3','addCourseResult']),
         picValue:state.getIn(['h1p3','picValue']),
+        list:state.getIn(['h1p3','list']),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(AddNewCourse));

@@ -406,3 +406,25 @@ Mock.mock(RegExp("/addCourseFinish"),'post',(post)=>{//添加课程是否成功
     "data":true//true添加成功
   }
 })
+Mock.mock(RegExp("/getList"),'get',{//获取课程领域
+    "succ":true,
+    "data":["IT·互联网","设计·创作","电商·营销","职业·考证","升学·考研","兴趣·生活","语言·留学"]
+})
+Mock.mock(RegExp("/getFixCourse.*"),'get',{//获取修改课程?key=xxx
+    "succ":true,
+    "data":{
+      "courseName":"课程名称",
+      "eduArea":"电商·营销",
+      "ageL":"5",
+      "ageH":"100",
+      "money":"5000",
+      "month":"1"
+    }
+})
+Mock.mock(RegExp("/fixCourseFinish"),'post',(post)=>{//修改课程是否成功
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true成功
+  }
+})

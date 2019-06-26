@@ -378,6 +378,55 @@ function* addCourseFinish(data) {
       console.log(`json请求失败`);
   }
 }
+function* getList(param) {
+  try {
+    const res=yield axios.get(`${Url}/getList/`);
+    const resData=res.data
+    const action=h1p3ActionCreators.setList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getFixCourse(param) {
+  try {
+    const res=yield axios.get(`${Url}/getFixCourse/`,{
+            params:{
+                key:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setFixCourse(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* fixCourseFinish(data) {
+  try {
+    // console.log(data.data);
+    var param=data.data;
+    const res=yield axios.post(`${Url}/fixCourseFinish/`,{
+            params:{
+                username:param.username,
+                fixKey:param.fixKey,
+                courseName:param.courseName,
+                eduArea:param.eduArea,
+                ageL:param.ageL,
+                ageH:param.ageH,
+                money:param.money,
+                month:param.month,
+                pic:param.pic,
+                picValue:param.picValue
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setFixCourseResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -403,6 +452,9 @@ function* mySaga() {
   yield takeEvery(h1p3ActionTypes.GETCOURSELIST, getMyCourseList);
   yield takeEvery(h1p3ActionTypes.DELETECOURSE, deleteCourse);
   yield takeEvery(h1p3ActionTypes.ADDCOURSEFINISH, addCourseFinish);
+  yield takeEvery(h1p3ActionTypes.GETLIST, getList);
+  yield takeEvery(h1p3ActionTypes.GETFIXCOURSE, getFixCourse);
+  yield takeEvery(h1p3ActionTypes.FIXCOURSEFINISH, fixCourseFinish);
 }
 
 export default mySaga;

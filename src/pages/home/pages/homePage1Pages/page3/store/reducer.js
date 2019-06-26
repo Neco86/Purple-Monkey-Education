@@ -4,7 +4,7 @@ const defaultState=fromJS({
     tabPage:0,//默认0,其他为了调试方便
     myCourseList:[],
     deleteResult:false,
-    page:0,//默认0,其他为了调试方便,1为添加新课程
+    page:3,//默认0,其他为了调试方便,1为添加新课程,2修改课程,3查看课程
     //page1-添加新课程
     courseName:"",
     eduArea:"",
@@ -14,14 +14,20 @@ const defaultState=fromJS({
     month:"",
     pic:"",//文件名称
     picValue:"",//文件内容
+    list:[],
     next:false,
-    addCourseResult:false
+    addCourseResult:false,
+    //page2-修改课程
+    fixKey:"",//默认空
+    fixCourseResult:false,
+    //page3-查看课程
+    seeKey:"",//默认空
 })
 const getChange=(state)=>{
     return ((state.get("courseName")!=="")&&(!state.get("eduArea")!=="")
     &&(state.get("ageL")!=="")&&(state.get("ageH")!=="")
     &&(!state.get("money"!==""))&&(state.get("month")!=="")
-    &&(state.get("pic")!==""))
+    &&(state.get("picValue")!==""))
 }
 export default (state=defaultState,action)=>{
     switch (action.type){
@@ -57,8 +63,18 @@ export default (state=defaultState,action)=>{
             return state.set("addCourseResult",action.data)
         case actionTypes.CHANGEPICVALUE:
             return state.set("picValue",action.data)
+        case actionTypes.SETLIST:
+            return state.set("list",action.data)
         case actionTypes.CLEARALL:
             return state.merge({"courseName":"","eduArea":"","ageL":"","ageH":"","money":"","month":"","pic":"","picValue":"","next":false})
+        case actionTypes.SETFIXKEY:
+            return state.set("fixKey",action.data)
+        case actionTypes.SETSEEKEY:
+            return state.set("seeKey",action.data)
+        case actionTypes.SETFIXCOURSE:
+            return state.merge({"courseName":action.courseName,"eduArea":action.eduArea,"ageH":action.ageH,"ageL":action.ageL,"money":action.money,"month":action.month,"next":true,"picValue":"x"})
+        case actionTypes.SETFIXCOURSERESULT:
+            return state.set("fixCourseResult",action.data)
         default: 
             return state
     }

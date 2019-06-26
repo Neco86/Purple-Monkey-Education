@@ -8,7 +8,7 @@ import { actionCreators } from './store'
 
 class MyCourse extends Component{
 render(){ 
-        const { myCourseList,deleteCourse } = this.props;
+        const { myCourseList,deleteCourse,fixCourse,seeCourse } = this.props;
          return(
             <MyCourseWrapper>
                 {myCourseList.map((item,index)=>(
@@ -22,8 +22,8 @@ render(){
                             </div>
                         </div>
                         <div className="bottom">
-                            <span className="iconfont detail">&#xe60f;查看详细信息</span>
-                            <span className="iconfont fix">&#xe609;修改课程信息</span>
+                            <span className="iconfont detail" onClick={()=>{seeCourse(item.key)}}>&#xe60f;查看详细信息</span>
+                            <span className="iconfont fix" onClick={()=>{fixCourse(item.key)}}>&#xe609;修改课程信息</span>
                             <span className="iconfont delete" onClick={()=>{deleteCourse(item.key,myCourseList)}}>&#xe63c;删除课程</span>
                         </div>
                     </CourseItemWrapper>
@@ -53,6 +53,14 @@ const mapDispatchToProps=(dispatch)=>{
                                 myCourseList.splice(i,1)
                             }
                     dispatch(actionCreators.deleteCourse(key,myCourseList))
+                },
+                seeCourse(key){
+                    dispatch(actionCreators.setSeeKey(key))
+                    dispatch(actionCreators.changePage(3))
+                },
+                fixCourse(key){
+                    dispatch(actionCreators.setFixKey(key))
+                    dispatch(actionCreators.changePage(2))
                 }
             }
         }
