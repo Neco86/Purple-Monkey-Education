@@ -4,7 +4,7 @@ const defaultState=fromJS({
     tabPage:0,//默认0,其他为了调试方便
     myCourseList:[],
     deleteResult:false,
-    page:3,//默认0,其他为了调试方便,1为添加新课程,2修改课程,3查看课程
+    page:0,//默认0,其他为了调试方便,1为添加新课程,2修改课程,3查看课程,4课程表
     //page1-添加新课程
     courseName:"",
     eduArea:"",
@@ -36,7 +36,16 @@ const defaultState=fromJS({
     changeIResult:false,
     error:"",
     addIResult:false,
-    iNext:false
+    iNext:false,
+    //课程表
+    courseTableList:[],
+    day1:[],
+    day2:[],
+    day3:[],
+    day4:[],
+    day5:[],
+    day6:[],
+    day7:[]
 
 })
 const getINext=(state)=>{
@@ -139,6 +148,10 @@ export default (state=defaultState,action)=>{
             return state.set("addIResult",action.data)
         case actionTypes.CHANGEINEXT:
             return state.set("iNext",getINext(state))
+        case actionTypes.SETCOURSETABLELIST:
+            return state.set("courseTableList",action.data)
+        case actionTypes.SETTABLELIST:
+            return state.merge({"day1":action.day1,"day2":action.day2,"day3":action.day3,"day4":action.day4,"day5":action.day5,"day6":action.day6,"day7":action.day7})
         default: 
             return state
     }

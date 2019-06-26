@@ -475,3 +475,42 @@ Mock.mock(RegExp("/addCourse"),'post',(post)=>{//添加小课程是否成功
     "data":true//true成功
   }
 })
+Mock.mock(RegExp("/getCourseTableList"),'get',(post)=>{//获取课程表?username=xxx
+  return {
+    "succ":true,
+    "data":[
+    {
+      "key":"1",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "title":"课程名称1",
+      "eduArea":"电商·营销",
+      "time":"2019-6-18 13:00",
+      "place":"上课地点",
+      "teacher":"任课教师"
+    },
+    {
+      "key":"2",
+      "imgSrc":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "title":"课程名称2",
+      "eduArea":"电商·营销",
+      "time":"2019-6-18 13:00",
+      "place":"上课地点",
+      "teacher":"任课教师"
+    }
+    ]
+  }
+})
+Mock.mock(RegExp("/getTableList"),'get',()=>{//获取课程表7天,?username=xxx
+  return {
+    "succ":true,
+    "data":{
+      "day1":[["2019","06-24","星期一"]],
+      "day2":[["2019","06-25","星期二"]],
+      "day3":[["2019","06-26","星期三"]],
+      "day4":[["2019","06-27","星期四"],["16:00","课程安排课程安排课程安排",""]],
+      "day5":[["2019","06-28","星期五"]],
+      "day6":[["2019","06-29","星期六"],["16:00","课程安排课程安排课程安排",""],["18:00","课程安排课程安排课程安排",""]],
+      "day7":[["2019","06-30","星期日"]]
+    }
+  }
+})

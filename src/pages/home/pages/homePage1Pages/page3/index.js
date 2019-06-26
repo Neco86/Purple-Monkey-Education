@@ -10,6 +10,7 @@ import Alert from '../../../../../common/components/Alert'
 import AddNewCourse from './addNewCoursePage'
 import FixCourse from './fixCoursePage'
 import CourseDetail from './courseDetailPage'
+import TablePage from './TablePage' 
 
 class HomePage1Page3 extends PureComponent{
 render(){
@@ -39,6 +40,7 @@ render(){
                 {page===1?<FullScreenWrapper><AddNewCourse/></FullScreenWrapper>:null}
                 {page===2?<FullScreenWrapper><FixCourse/></FullScreenWrapper>:null}
                 {page===3?<FullScreenWrapper><CourseDetail/></FullScreenWrapper>:null}
+                {page===4?<FullScreenWrapper><TablePage/></FullScreenWrapper>:null}
             </CourseWrapper>
         )
    

@@ -131,7 +131,7 @@ const mapDispatchToProps=(dispatch)=>{
                 },
                 postComment(data,username,userImg,newsComments,key){
                     var date=new Date();
-                    var timeStr1=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDay()}`
+                    var timeStr1=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
                     var timeStr2=`${date.getHours()}:${date.getMinutes()}`;
                     const time=[timeStr1,timeStr2]
                     dispatch(actionCreators.postComment(data,username,time,"news",key))

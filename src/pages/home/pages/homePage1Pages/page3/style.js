@@ -154,3 +154,101 @@ export const Button2Wrapper = styled.div`
         background-color:#c9f;
     }
 `
+export const CourseTableWrapper = styled.div`
+    .top{
+        height:65px;
+        width:100%;
+        background-color:white;
+        overflow:hidden;
+        border-bottom:1px solid #f2f2f2;
+        .left{
+            width:50%;
+            float:left;
+            height:100%;
+            div{
+                height:50%;
+                font-size:16px;
+            }
+            .today{
+                position:relative;
+                top:10px;
+                left:20px;
+            }
+            .total{
+                position:relative;
+                top:10px;
+                left:20px;
+                span{
+                    font-size:18px;
+                    font-weight:800;
+                }
+            }
+        }
+        .right{
+            width:50%;
+            float:left;
+            .iconfont{
+                color:#c9f;
+                float:right;
+                position:relative;
+                top:20px;
+                right:20px;
+            }
+        }
+    }
+    .item{
+        height:180px;
+        background-color:white;
+        width:100%;
+        padding:20px;
+        border-bottom:1px solid #f2f2f2;
+        .itemTop{
+            img{
+                width:160px;
+                height:80px;
+            }
+            .itemRight{
+                display:inline-block;
+                margin-left:20px;
+                position:relative;
+                .title{
+                    position:absolute;
+                    top:-55px;
+                    font-size:18px;
+                }
+                .eudArea{
+                    position:absolute;
+                    top:-25px;
+                    font-size:16px;
+                }
+                .detail{
+                    font-size:16px;
+                    color:#c9f;
+                }
+            }
+        }
+        .itemBottom{
+            margin-top:20px;
+            margin-left:20px;
+            line-height:18px;
+        }
+        
+    }
+`
+export const TablePageWrapper = styled.div`
+    .item{
+        display:inline-block;
+        width:13%;
+        height:calc(100% - 5px);
+        margin-right:1.5%;
+        background-color:white;
+        box-shadow:2px 2px 5px black;
+        text-align:center;
+        overflow:hidden;
+        .course{
+            background-color:#daebfb;
+            height:150px;
+            padding-top:50px
+        }
+    }
+`

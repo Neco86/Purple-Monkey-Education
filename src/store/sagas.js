@@ -487,6 +487,34 @@ function* addCourse(param) {
       console.log(`json请求失败`);
   }
 }
+function* getCourseTableList(param) {
+  try {
+    const res=yield axios.get(`${Url}/getCourseTableList/`,{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setCourseTableList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getTableList(param) {
+  try {
+    const res=yield axios.get(`${Url}/getTableList/`,{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setTableList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -519,6 +547,8 @@ function* mySaga() {
   yield takeEvery(h1p3ActionTypes.DELETECOURSEDETAIL, deleteCourseDetail);
   yield takeEvery(h1p3ActionTypes.CHANGECOURSEDETAIL, changeCourseDetail);
   yield takeEvery(h1p3ActionTypes.ADDCOURSE, addCourse);
+  yield takeEvery(h1p3ActionTypes.GETCOURSETABLELIST, getCourseTableList);
+  yield takeEvery(h1p3ActionTypes.GETTABLELIST, getTableList);
 }
 
 export default mySaga;

@@ -198,3 +198,26 @@ export const setAddCourseIResult=(data)=>({
 export const changeINext=()=>({
     type:actionTypes.CHANGEINEXT
 })
+export const getCourseTableList = (data)=>({
+    type:actionTypes.GETCOURSETABLELIST,
+    data:data
+})
+export const setCourseTableList = (data)=>({
+    type:actionTypes.SETCOURSETABLELIST,
+    data:data
+})
+export const getTableList = (data)=>({
+    type:actionTypes.GETTABLELIST,
+    data:data
+})
+export const setTableList = (data)=>({
+    type:actionTypes.SETTABLELIST,
+    data:data,
+    day1:data.day1,
+    day2:data.day2,
+    day3:data.day3,
+    day4:data.day4,
+    day5:data.day5,
+    day6:data.day6,
+    day7:data.day7,
+})
