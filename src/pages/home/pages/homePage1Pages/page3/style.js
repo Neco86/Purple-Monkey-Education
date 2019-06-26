@@ -96,3 +96,32 @@ export const SelectWrapper = styled.div`
     z-index:9;
     top:115px;
 `
+export const CourseDetailWrapper = styled.div`
+    width:100%;
+    height:100%;
+    display:flex;
+    .tab{
+        flex:1;
+        padding-top:45px;
+        .left{
+            height:calc(100% - 45px);
+            width:115px;
+            position:absolute;
+            border-right:1px solid #ddd;
+        }
+    }
+    .am-tabs-default-bar-tab-active{
+        color:#c9f;
+        background-color:white;
+    }
+    .am-tabs-default-bar-underline{
+        border:1px solid #c9f;
+    }
+    .am-tabs-tab-bar-wrap{
+        height:${(props)=>props.height} !important;
+        width:115px;
+    }
+    .am-tabs-default-bar,.am-tabs-default-bar-animated,.am-tabs-default-bar-left{
+        background-color:#f9f9f9 !important;
+    }
+`

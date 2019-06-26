@@ -428,3 +428,29 @@ Mock.mock(RegExp("/fixCourseFinish"),'post',(post)=>{//修改课程是否成功
     "data":true//true成功
   }
 })
+Mock.mock(RegExp("/getPage3CourseDetail"),'post',(post)=>{//课程详细信息
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":[
+    {
+      "key":"1",
+      "courseName":"第一次课",
+      "place":"上课地点",
+      "time":"2019-06-07 12:00",
+      "long":"45",
+      "teacher":"上课老师",
+      "homeWork":"第一次作业.doc"
+    },
+    {
+      "key":"2",
+      "courseName":"第一次课",
+      "place":"上课地点",
+      "time":"2019-06-07 12:00",
+      "long":"45",
+      "teacher":"上课老师",
+      "homeWork":"第一次作业.doc"
+    }
+    ]
+  }
+})

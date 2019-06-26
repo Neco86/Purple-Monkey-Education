@@ -22,6 +22,7 @@ const defaultState=fromJS({
     fixCourseResult:false,
     //page3-查看课程
     seeKey:"",//默认空
+    courseDetail:[]
 })
 const getChange=(state)=>{
     return ((state.get("courseName")!=="")&&(!state.get("eduArea")!=="")
@@ -75,6 +76,8 @@ export default (state=defaultState,action)=>{
             return state.merge({"courseName":action.courseName,"eduArea":action.eduArea,"ageH":action.ageH,"ageL":action.ageL,"money":action.money,"month":action.month,"next":true,"picValue":"x"})
         case actionTypes.SETFIXCOURSERESULT:
             return state.set("fixCourseResult",action.data)
+        case actionTypes.SETPAGE3COURSEDETAIL:
+            return state.set("courseDetail",action.data)
         default: 
             return state
     }

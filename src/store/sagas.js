@@ -427,6 +427,20 @@ function* fixCourseFinish(data) {
       console.log(`json请求失败`);
   }
 }
+function* getPage3CourseDetail(param) {
+  try {
+    const res=yield axios.post(`${Url}/getPage3CourseDetail/`,{
+            params:{
+                key:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p3ActionCreators.setPage3CourseDetail(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -455,6 +469,7 @@ function* mySaga() {
   yield takeEvery(h1p3ActionTypes.GETLIST, getList);
   yield takeEvery(h1p3ActionTypes.GETFIXCOURSE, getFixCourse);
   yield takeEvery(h1p3ActionTypes.FIXCOURSEFINISH, fixCourseFinish);
+  yield takeEvery(h1p3ActionTypes.GETPAGE3COURSEDETAIL, getPage3CourseDetail);
 }
 
 export default mySaga;

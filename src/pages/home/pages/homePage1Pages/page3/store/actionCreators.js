@@ -110,4 +110,11 @@ export const setFixCourseResult = (data)=>({
     type:actionTypes.SETFIXCOURSERESULT,
     data:data
 })
-
+export const getPage3CourseDetail = (data)=>({
+    type:actionTypes.GETPAGE3COURSEDETAIL,
+    data:data
+})
+export const setPage3CourseDetail = (data)=>({
+    type:actionTypes.SETPAGE3COURSEDETAIL,
+    data:data
+})
