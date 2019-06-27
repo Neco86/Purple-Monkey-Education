@@ -72,7 +72,7 @@ render(){
 }
 componentDidMount(){
     // window.addEventListener("popstate",()=>{},false);
-    window.onpopstate=()=>{}
+    // window.onpopstate=()=>{}
     // window.addEventListener("popstate",()=>{window.history.pushState(null, null, "/#/home");},false);
     // window.history.pushState(null, null, '/#/home');
 }

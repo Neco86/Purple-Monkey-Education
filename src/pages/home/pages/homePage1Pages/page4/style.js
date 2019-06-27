@@ -37,14 +37,22 @@ export const MyPageWrapper = styled.div`
         overflow:hidden;
         .item{
             width:33%;
+            height:100%;
             float:left;
-            position:relative;
-            left:50px;
-            top:20px;
+            text-align:center;
+            padding-top:25px;
+            .bottom{
+                margin-top:4px;
+            }
             .iconfont{
-                font-size:25px;
                 display:inline-block;
-                margin-bottom:5px;
+                height:16px;
+                overflow:hidden;
+            }
+            .comment{
+                font-size: 14px;
+                position: relative;
+                top: 2px;
             }
         }
     }

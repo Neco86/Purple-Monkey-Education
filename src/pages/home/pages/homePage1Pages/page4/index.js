@@ -42,8 +42,7 @@ render(){
                         </div>
                         <div className="item">
                             <div 
-                            className='iconfont' 
-                            style={{fontSize:"20px",position:"relative",top:"4px",marginBottom:"10px"}}
+                            className='iconfont comment' 
                             onClick={()=>{changePage(8)}}
                             >&#xe607;</div>
                             <div className="bottom" onClick={()=>{changePage(8)}}>评论</div>

@@ -53,13 +53,15 @@ export const CourseItemWrapper = styled.div`
         border-bottom:1px solid #f2f2f2;
         padding:10px;
         background-color:white;
+        
         span{
             display:inline-block;
-            padding-right:14px;
             line-height:10px;
+            font-size:14px;
         }
         .detail,.fix{
             color:#c9f;
+            padding-right:14px;
         }
         .delete{
             color:#d9001b;
