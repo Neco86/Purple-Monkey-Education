@@ -535,26 +535,26 @@ Mock.mock(RegExp("/getMoreInfo.*"),'get',()=>{//获取更多个人信息,?userna
     "succ":true,
     "data":{
       //type1个人教师
-      "type":"type1",
-      "username":"我的姓名",
-      "sex":"男",
-      "age":"22",
-      "id":"222222222222222222",
-      "eduArea":"IT·互联网",
-      "teachAge":"6年",
-      "ageL":"5",
-      "ageH":"99",
-      "tel":"13800000000"
+      // "type":"type1",
+      // "username":"我的姓名",
+      // "sex":"男",
+      // "age":"22",
+      // "id":"222222222222222222",
+      // "eduArea":"IT·互联网",
+      // "teachAge":"6年",
+      // "ageL":"5",
+      // "ageH":"99",
+      // "tel":"13800000000"
 
       //type2教育机构
-      // "type":"type2",
-      // "username":"XXX教育机构",
-      // "eduArea":"IT·互联网",
-      // "place":"浙江 杭州 下城区",
-      // "detailPlace":"详细地址",
-      // "tel":"13800000000",
-      // "ageL":"5",
-      // "ageH":"99"
+      "type":"type2",
+      "username":"XXX教育机构",
+      "eduArea":"IT·互联网",
+      "place":"浙江 杭州 下城区",
+      "detailPlace":"详细地址",
+      "tel":"13800000000",
+      "ageL":"5",
+      "ageH":"99"
     }
   }
 })
