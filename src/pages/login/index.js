@@ -1,4 +1,4 @@
-import React,{ PureComponent } from 'react'
+import React,{ Component } from 'react'
 import { BgWrapper,Button1 } from '../../common/style'
 import { Wrapper,InputWrapper } from './style'
 import Img from '../../statics/logo.png'
@@ -9,7 +9,7 @@ import NavBar from '../../common/components/NavBar'
 import Alert from '../../common/components/Alert'
 import { Redirect } from 'react-router-dom'
 
-class Login extends PureComponent{
+class Login extends Component{
 render(){
         const { username,password,changeUsername,changePassword,login,history,type,reLogin } = this.props;
          return(
@@ -62,6 +62,9 @@ render(){
             </BgWrapper>
         )
    
+}
+componentDidMount(){
+    // window.history.pushState(null, "", '/#/login');
 }
 }
 const mapDispatchToProps=(dispatch)=>{

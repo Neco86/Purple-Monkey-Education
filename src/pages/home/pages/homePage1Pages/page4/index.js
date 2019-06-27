@@ -114,7 +114,7 @@ render(){
                         icon="&#xe602;"
                         iconColor="#f4ea2a"
                         func={()=>{setFeedBack(false)}}
-                        content={["本应用不接受","任何形式的意见反馈"]}
+                        content={["本应用不接受","任何意见反馈"]}
                         />:null}
                 </Fragment>
                 :null}

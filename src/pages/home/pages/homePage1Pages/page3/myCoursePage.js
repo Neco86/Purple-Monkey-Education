@@ -22,9 +22,15 @@ render(){
                             </div>
                         </div>
                         <div className="bottom">
-                            <span className="iconfont detail" onClick={()=>{seeCourse(item.key)}}>&#xe60f;查看详细信息</span>
-                            <span className="iconfont fix" onClick={()=>{fixCourse(item.key)}}>&#xe609;修改课程信息</span>
-                            <span className="iconfont delete" onClick={()=>{deleteCourse(item.key,myCourseList)}}>&#xe63c;删除课程</span>
+                            <div className="item">
+                                <span className="iconfont detail" onClick={()=>{seeCourse(item.key)}}>&#xe60f;查看信息</span>
+                            </div>
+                            <div className="item">
+                                <span className="iconfont fix" onClick={()=>{fixCourse(item.key)}}>&#xe609;修改课程</span>
+                            </div>
+                            <div className="item">
+                                <span className="iconfont delete" onClick={()=>{deleteCourse(item.key,myCourseList)}}>&#xe63c;删除课程</span>
+                            </div>
                         </div>
                     </CourseItemWrapper>
                     ))}

@@ -72,9 +72,8 @@ render(){
 }
 componentDidMount(){
     // window.addEventListener("popstate",()=>{},false);
-    // window.onpopstate=()=>{}
-    // window.addEventListener("popstate",()=>{window.history.pushState(null, null, "/#/home");},false);
-    // window.history.pushState(null, null, '/#/home');
+    // window.addEventListener("popstate",()=>{},false);
+    // window.history.pushState(null, "", '/#/home');
 }
 componentWillUnmount(){
     // window.removeEventListener("popstate",()=>{},false);

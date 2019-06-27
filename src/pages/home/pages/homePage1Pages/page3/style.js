@@ -54,14 +54,13 @@ export const CourseItemWrapper = styled.div`
         padding:10px;
         background-color:white;
         
-        span{
-            display:inline-block;
-            line-height:10px;
-            font-size:14px;
+        .item{
+            float:left;
+            width:33%;
+            text-align:center;
         }
         .detail,.fix{
             color:#c9f;
-            padding-right:14px;
         }
         .delete{
             color:#d9001b;

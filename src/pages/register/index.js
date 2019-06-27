@@ -1,4 +1,4 @@
-import React,{ PureComponent,Fragment } from 'react'
+import React,{ Component,Fragment } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { actionCreators } from './store'
@@ -10,7 +10,7 @@ import { InputWrapper } from './style'
 import StudentRegister from '../studentRegister'
 import TeacherRegister from '../teacherRegister'
 import GroupRegister from '../groupRegister'
-class Register extends PureComponent{
+class Register extends Component{
 
 render(){
         const { history,username,changeUserName,usernameBottom,
@@ -77,6 +77,9 @@ render(){
             </Wrapper>
         )
    
+}
+componentDidMount(){
+    // window.history.pushState(null, "", '/#/register');
 }
 }
 const mapDispatchToProps=(dispatch)=>{

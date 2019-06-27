@@ -13,8 +13,7 @@ render(){
 }
 componentDidMount(){
     // window.addEventListener("popstate", this.props.func,false);
-    // window.onpopstate=this.props.func;
-    // window.history.pushState(null,null, '');
+    // window.history.pushState(null,'', '');
 }
 componentWillUnmount(){
     // window.removeEventListener("popstate", this.props.func,false);
