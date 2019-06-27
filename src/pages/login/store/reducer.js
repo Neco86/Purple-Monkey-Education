@@ -3,7 +3,7 @@ const { fromJS } = require('immutable')
 const defaultState=fromJS({
     username:"",
     password:"",
-    type:"type1"//默认空,type1,type2,error1,error2,error3为调试使用
+    type:""//默认空,type1,type2,error1,error2,error3为调试使用
 })
 
 export default (state=defaultState,action)=>{
@@ -16,6 +16,8 @@ export default (state=defaultState,action)=>{
             return state.set("type",action.data)
         case actionTypes.RELOGIN:
             return state.set("type","")
+        case actionTypes.HANDLELOGOUT:
+            return state.merge({"username":"","password":"","type":""})
         default: 
             return state
     }

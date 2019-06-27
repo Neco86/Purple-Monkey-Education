@@ -11,12 +11,12 @@ render(){
         )
    
 }
-componentDidMount(){
-    window.addEventListener("popstate", this.props.func,false);
-    window.history.pushState(null, '', '');
-}
-componentWillUnmount(){
-    window.removeEventListener("popstate", this.props.func,false);
-}
+// componentDidMount(){
+//     window.addEventListener("popstate", this.props.func,false);
+//     window.history.pushState(null,null, '');
+// }
+// componentWillUnmount(){
+//     window.removeEventListener("popstate", this.props.func,false);
+// }
 }
 export default NavBar

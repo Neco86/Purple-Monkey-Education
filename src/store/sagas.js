@@ -8,6 +8,9 @@ import { actionTypes as loginActionTypes,actionCreators as loginActionCreators }
 import { actionTypes as h1p1ActionTypes,actionCreators as h1p1ActionCreators }   from '../pages/home/pages/homePage1Pages/page1/store'
 import { actionTypes as h1p2ActionTypes,actionCreators as h1p2ActionCreators }   from '../pages/home/pages/homePage1Pages/page2/store'
 import { actionTypes as h1p3ActionTypes,actionCreators as h1p3ActionCreators }   from '../pages/home/pages/homePage1Pages/page3/store'
+import { actionTypes as h1p4ActionTypes,actionCreators as h1p4ActionCreators }   from '../pages/home/pages/homePage1Pages/page4/store'
+import { actionTypes as h1p4EditGroupActionTypes,actionCreators as h1p4EditGroupActionCreators }   from '../pages/home/pages/homePage1Pages/page4/editGroup/store'
+import { actionTypes as h1p4EditTeacherActionTypes,actionCreators as h1p4EditTeacherActionCreators }   from '../pages/home/pages/homePage1Pages/page4/eidtTeacher/store'
 
 import settings from './settings';
 const Url = settings.url;
@@ -515,6 +518,204 @@ function* getTableList(param) {
       console.log(`json请求失败`);
   }
 }
+function* getUserInfo(param) {
+  try {
+    const res=yield axios.get(`${Url}/getUserInfo/`,{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setUserInfo(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* addNewPhoto(param) {
+  try {
+    const res=yield axios.post(`${Url}/addNewPhoto/`,{
+            params:{
+                username:param.username,
+                userImg:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setNewPhotoResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getMoreInfo(param) {
+  try {
+    const res=yield axios.get(`${Url}/getMoreInfo/`,{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setMoreInfo(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* editGroupFnish(data) {
+  try {
+    const param=data.data;
+    const params={
+        username : param.username,//用户名
+        groupName:param.groupName,//性名
+        sex:param.sex,//性别
+        age:param.age,//年龄
+        personID:param.personID,//身份证号
+        chooseEduArea:param.chooseEduArea,//从教领域
+        teacheAge:param.teacheAge,//从教年限
+        ageL:param.ageL,//适龄下限
+        ageH:param.ageH,//适龄上线
+        tel:param.tel//联系方式
+
+    }
+    const res=yield axios.post(`${Url}/editGroupFnish/`, {
+            params:params
+        });
+    const resData=res.data
+    const action=h1p4EditGroupActionCreators.setEditGroupResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* eidtTeacherFinish(data) {
+  try {
+    const param=data.data;
+    const params={
+        username : param.username,//用户名
+
+        name:param.name,//性名
+        sex:param.sex,//性别
+        age:param.age,//年龄
+        personID:param.personID,//身份证号
+        chooseEduArea:param.chooseEduArea,//从教领域
+        teacheAge:param.teacheAge,//从教年限
+        ageL:param.ageL,//适龄下限
+        ageH:param.ageH,//适龄上线
+        tel:param.tel//联系方式
+    }
+    const res=yield axios.post(`${Url}/eidtTeacherFinish/`, {
+            params:params
+        });
+    const resData=res.data
+    const action=h1p4EditTeacherActionCreators.setEditTecherResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getPubList(param) {
+  try {
+    const res=yield axios.get(`${Url}/getPubList/`,{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setPubList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* deleteItem(param) {
+  try {
+    const res=yield axios.get(`${Url}/deleteItem/`,{
+            params:{
+                username:param.username,
+                key:param.key,
+                data:param.data//删完之后结果
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setDeleteItemResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getPubDetail(param) {
+  try {
+    const res=yield axios.get(`${Url}/getPubDetail/`,{
+            params:{
+                username:param.username,
+                key:param.key,
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setPubDetail(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getPubTypeList(param) {
+  try {
+    const res=yield axios.get(`${Url}/getPubTypeList/`);
+    const resData=res.data
+    const action=h1p4ActionCreators.setPubTypeList(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* editPubFinish(p) {
+  try {
+    const param=p.data;
+    const res=yield axios.post(`${Url}/editPubFinish/`,{
+            params:{
+                username:param.username,
+                key:param.detailKey,
+                title:param.title,
+                type:param.pubType,
+                content:param.content
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setEditPubResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* getMyComment(param) {
+  try {
+    const res=yield axios.get(`${Url}/getMyComment/`,{
+            params:{
+                username:param.data
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setMyComment(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
+function* deleteComment(param) {
+  try {
+    const res=yield axios.post(`${Url}/deleteComment/`,{
+            params:{
+                username:param.username,
+                key:param.key
+            }
+        });
+    const resData=res.data
+    const action=h1p4ActionCreators.setDeleteCommentResult(resData.data)
+    yield put(action)
+  }catch(e){
+      console.log(`json请求失败`);
+  }
+}
 function* mySaga() {
   yield takeEvery(registerActionTypes.CHANGEUSERNAME, getRegisterUserName);
   yield takeEvery(groupRegisterActionTypes.GETEDUCATIONAREA, getGroupRegisterEduArea);
@@ -549,6 +750,18 @@ function* mySaga() {
   yield takeEvery(h1p3ActionTypes.ADDCOURSE, addCourse);
   yield takeEvery(h1p3ActionTypes.GETCOURSETABLELIST, getCourseTableList);
   yield takeEvery(h1p3ActionTypes.GETTABLELIST, getTableList);
+  yield takeEvery(h1p4ActionTypes.GETUSERINFO, getUserInfo);
+  yield takeEvery(h1p4ActionTypes.ADDNEWPHOTO, addNewPhoto);
+  yield takeEvery(h1p4ActionTypes.GETMOREINFO, getMoreInfo);
+  yield takeEvery(h1p4EditGroupActionTypes.EDITGROUPFNISH, editGroupFnish);
+  yield takeEvery(h1p4EditTeacherActionTypes.EDITTEACHERFINISH, eidtTeacherFinish);
+  yield takeEvery(h1p4ActionTypes.GETPUBLISH, getPubList);
+  yield takeEvery(h1p4ActionTypes.DELETEITEM, deleteItem);
+  yield takeEvery(h1p4ActionTypes.GETPUBDETAIL, getPubDetail);
+  yield takeEvery(h1p4ActionTypes.GETPUBTYPELIST, getPubTypeList);
+  yield takeEvery(h1p4ActionTypes.EDITPUBFINISH, editPubFinish);
+  yield takeEvery(h1p4ActionTypes.GETMYCOMMENT, getMyComment);
+  yield takeEvery(h1p4ActionTypes.DELETECOMMENT, deleteComment);
 }
 
 export default mySaga;

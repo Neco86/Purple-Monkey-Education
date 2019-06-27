@@ -176,6 +176,10 @@ export const AlertWrapper = styled.div`
     text-align:center;
     box-sizing:border-box;
     padding:10px;
+    div{
+      margin-top:6px;
+      line-height:16px;
+    }
   }
   .iconfont{
     display:inline-block;

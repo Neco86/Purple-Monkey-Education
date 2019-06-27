@@ -4,7 +4,7 @@ Mock.mock(RegExp("/registerUserName.*"),'get',{//判断用户名是否重名?use
     "succ":true,
     "data":false//true用户名重名
 })
-Mock.mock(RegExp("/getEducationArea"),'get',{//获取教育领域或选课意向
+Mock.mock(RegExp("/getEducationArea.*"),'get',{//获取教育领域或选课意向
     "succ":true,
     "data":["IT·互联网","设计·创作","电商·营销","职业·考证","升学·考研","兴趣·生活","语言·留学"]
 })
@@ -12,7 +12,7 @@ Mock.mock(RegExp("/groupNameBottom.*"),'get',{//判断机构名是否重名?user
     "succ":true,
     "data":false//true机构名重名
 })
-Mock.mock(RegExp("/getProvince"),'get',{//获取店面地址
+Mock.mock(RegExp("/getProvince.*"),'get',{//获取店面地址
     "succ":true,
     "data":[
           {
@@ -94,7 +94,7 @@ Mock.mock(RegExp("/login"),'post',(post)=>{//登录
     //type1个人教师/教育机构,type2学生家长
   }
 })
-Mock.mock(RegExp("/getNewsList"),'get',()=>{//新闻内容
+Mock.mock(RegExp("/getNewsList.*"),'get',()=>{//新闻内容
   return {
     "succ":true,
     "data":[
@@ -128,7 +128,7 @@ Mock.mock(RegExp("/getNewsList"),'get',()=>{//新闻内容
           ]
   }
 })
-Mock.mock(RegExp("/getVideosList"),'get',()=>{//视频内容
+Mock.mock(RegExp("/getVideosList.*"),'get',()=>{//视频内容
   return {
     "succ":true,
     "data":[
@@ -281,13 +281,13 @@ Mock.mock(RegExp("/postComment"),'post',(post)=>{//data发布的内容,username�
     "data":true//true发布成功
   }
 })
-Mock.mock(RegExp("/getUserImg"),'get',()=>{//?username=xxx
+Mock.mock(RegExp("/getUserImg.*"),'get',()=>{//?username=xxx
   return {
     "succ":true,
     "data":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
   }
 })
-Mock.mock(RegExp("/getVideosDetail"),'get',()=>{//?videosKey=xxx
+Mock.mock(RegExp("/getVideosDetail.*"),'get',()=>{//?videosKey=xxx
   return {
     "succ":true,
     "data":{
@@ -307,7 +307,7 @@ Mock.mock(RegExp("/getVideosDetail"),'get',()=>{//?videosKey=xxx
     }
   }
 })
-Mock.mock(RegExp("/getTry"),'get',()=>{
+Mock.mock(RegExp("/getTry.*"),'get',()=>{
   return {
     "succ":true,
     "data":[
@@ -372,7 +372,7 @@ Mock.mock(RegExp("/disAgree"),'post',(post)=>{//试听同意
     "data":true//true拒绝结果成功
   }
 })
-Mock.mock(RegExp("/getMyCourseList"),'get',()=>{//课程列表
+Mock.mock(RegExp("/getMyCourseList.*"),'get',()=>{//课程列表
   return {
     "succ":true,
     "data":[
@@ -475,7 +475,7 @@ Mock.mock(RegExp("/addCourse"),'post',(post)=>{//添加小课程是否成功
     "data":true//true成功
   }
 })
-Mock.mock(RegExp("/getCourseTableList"),'get',(post)=>{//获取课程表?username=xxx
+Mock.mock(RegExp("/getCourseTableList.*"),'get',()=>{//获取课程表?username=xxx
   return {
     "succ":true,
     "data":[
@@ -500,7 +500,7 @@ Mock.mock(RegExp("/getCourseTableList"),'get',(post)=>{//获取课程表?usernam
     ]
   }
 })
-Mock.mock(RegExp("/getTableList"),'get',()=>{//获取课程表7天,?username=xxx
+Mock.mock(RegExp("/getTableList.*"),'get',()=>{//获取课程表7天,?username=xxx
   return {
     "succ":true,
     "data":{
@@ -512,5 +512,148 @@ Mock.mock(RegExp("/getTableList"),'get',()=>{//获取课程表7天,?username=xxx
       "day6":[["2019","06-29","星期六"],["16:00","课程安排课程安排课程安排",""],["18:00","课程安排课程安排课程安排",""]],
       "day7":[["2019","06-30","星期日"]]
     }
+  }
+})
+Mock.mock(RegExp("/getUserInfo.*"),'get',()=>{//获取用户信息,?username=xx
+  return {
+    "succ":true,
+    "data":{
+      "username":"xx教育机构",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg"
+    }
+  }
+})
+Mock.mock(RegExp("/addNewPhoto.*"),'post',(post)=>{//上传新头像
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//上传成功
+  }
+})
+Mock.mock(RegExp("/getMoreInfo.*"),'get',()=>{//获取更多个人信息,?username=xxx
+  return {
+    "succ":true,
+    "data":{
+      //type1个人教师
+      "type":"type1",
+      "username":"我的姓名",
+      "sex":"男",
+      "age":"22",
+      "id":"222222222222222222",
+      "eduArea":"IT·互联网",
+      "teachAge":"6年",
+      "ageL":"5",
+      "ageH":"99",
+      "tel":"13800000000"
+
+      //type2教育机构
+      // "type":"type2",
+      // "username":"XXX教育机构",
+      // "eduArea":"IT·互联网",
+      // "place":"浙江 杭州 下城区",
+      // "detailPlace":"详细地址",
+      // "tel":"13800000000",
+      // "ageL":"5",
+      // "ageH":"99"
+    }
+  }
+})
+Mock.mock(RegExp("/editGroupFnish"),'post',(post)=>{//修改个人信息
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//修改成功
+  }
+})
+Mock.mock(RegExp("/eidtTeacherFinish"),'post',(post)=>{//修改个人信息
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//修改成功
+  }
+})
+Mock.mock(RegExp("/getPubList.*"),'get',{//我的通知?username=xxx
+    "succ":true,
+    "data":[
+    {
+      "key":"1",
+      "title":"关于XXX的公告一",
+      "type":"通知公告",
+      "time":"2019-6-17 13:14"
+    },
+    {
+      "key":"2",
+      "title":"关于XXX的公告二",
+      "type":"通知公告",
+      "time":"2019-6-17 13:14"
+    }
+    ]
+})
+Mock.mock(RegExp("/deleteItem.*"),'get',()=>{//删除公告
+  return {
+    "succ":true,
+    "data":true//删除成功
+  }
+})
+Mock.mock(RegExp("/getPubDetail.*"),'get',()=>{//查看公告?username=xxx&key=xxx
+  return {
+    "succ":true,
+    "data":{
+      "title":"关于XX的通知",
+      "type":"通知公告",
+      "time":"2019-6-17 13:34",
+      "content":"通知公告通知公告通知公告通知公告通知公告通知公告通知公告通知公告通知公告"
+    }
+  }
+})
+Mock.mock(RegExp("/getPubTypeList.*"),'get',()=>{//获取公告类型
+  return {
+    "succ":true,
+    "data":["通知公告","教学公示"]
+  }
+})
+Mock.mock(RegExp("/editPubFinish"),'post',(post)=>{//编辑公告
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true编辑成功
+  }
+})
+Mock.mock(RegExp("/getMyComment"),'get',()=>{//获得我的公告?username=xxx
+  return {
+    "succ":true,
+    "data":[
+    {
+      "key":"1",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "username":"我的名字",
+      "time":"2019-0605 49:55",
+      "comment":"16666",
+      "courseImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "courseTitle":"1XXX课程",
+      "personPhoto":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "personName":"1新闻发布者",
+      "courseTime":"2019-06-05"
+    },
+    {
+      "key":"2",
+      "userImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "username":"我的名字",
+      "time":"2019-0605 49:55",
+      "comment":"26666",
+      "courseImg":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "courseTitle":"2XXX课程",
+      "personPhoto":"https://tc.sinaimg.cn/maxwidth.2048/tc.service.weibo.com/www_chinanews_com/bbd1204d2e5093f5486f881371f3759b.jpg",
+      "personName":"2新闻发布者",
+      "courseTime":"2019-06-05"
+    }
+    ]
+  } 
+})
+Mock.mock(RegExp("/deleteComment"),'post',(post)=>{//删除评论
+  console.log(post.body)
+  return {
+    "succ":true,
+    "data":true//true删除成功
   }
 })

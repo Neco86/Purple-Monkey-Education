@@ -20,3 +20,6 @@ export const loginResult = (data)=>({
 export const reLogin = ()=>({
     type:actionTypes.RELOGIN
 })
+export const handleLogOut = ()=>({
+    type:actionTypes.HANDLELOGOUT
+})

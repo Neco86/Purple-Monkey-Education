@@ -8,6 +8,9 @@ import { reducer as home1Reducer } from '../pages/home/pages/homePage1Pages/stor
 import { reducer as home1page1Reducer } from '../pages/home/pages/homePage1Pages/page1/store'
 import { reducer as home1page2Reducer } from '../pages/home/pages/homePage1Pages/page2/store'
 import { reducer as home1page3Reducer } from '../pages/home/pages/homePage1Pages/page3/store'
+import { reducer as home1page4Reducer } from '../pages/home/pages/homePage1Pages/page4/store'
+import { reducer as home1page4EditTeacherReducer } from '../pages/home/pages/homePage1Pages/page4/eidtTeacher/store'
+import { reducer as home1page4EditGroupReducer } from '../pages/home/pages/homePage1Pages/page4/editGroup/store'
 
 const reducer = combineReducers({
     register:registerReducer,
@@ -19,5 +22,8 @@ const reducer = combineReducers({
     h1p1:home1page1Reducer,
     h1p2:home1page2Reducer,
     h1p3:home1page3Reducer,
+    h1p4:home1page4Reducer,
+    h1p4EditTeacher:home1page4EditTeacherReducer,
+    h1p4EditGroup:home1page4EditGroupReducer,
 })
 export default reducer

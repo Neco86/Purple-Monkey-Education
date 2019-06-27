@@ -70,13 +70,13 @@ render(){
         )
    
 }
-componentDidMount(){
-    window.addEventListener("popstate",()=>{window.history.pushState(null, '', '');},false);
-    window.history.pushState(null, '', '');
-}
-componentWillUnmount(){
-    window.removeEventListener("popstate",()=>{},false);
-}
+// componentDidMount(){
+//     window.addEventListener("popstate",()=>{window.history.pushState(null, null, "/#/home");},false);
+//     window.history.pushState(null, null, '/#/home');
+// }
+// componentWillUnmount(){
+//     window.removeEventListener("popstate",()=>{},false);
+// }
 }
 const mapDispatchToProps=(dispatch)=>{
             return {

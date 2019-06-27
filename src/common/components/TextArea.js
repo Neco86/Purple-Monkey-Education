@@ -13,6 +13,7 @@ render(){
                     rows="3" 
                     onChange={(e)=>{this.props.onChange(e)}}
                     value={this.props.value}
+                    placeholder={this.props.placeholder}
                     />
                 </div>
             </TextAreaWrapper>
