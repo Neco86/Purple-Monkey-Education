@@ -294,9 +294,13 @@ function* getVideosDetail(param) {
       console.log(`json请求失败`);
   }
 }
-function* getTry() {
+function* getTry(param) {
   try {
-    const res=yield axios.get(`${Url}/getTry/`);
+    const res=yield axios.get(`${Url}/getTry/`,{
+            params:{
+                username:param.data
+            }
+        });
     const resData=res.data
     const action=h1p2ActionCreators.setTry(resData.data)
     yield put(action)
@@ -334,9 +338,13 @@ function* disAgree(param) {
       console.log(`json请求失败`);
   }
 }
-function* getMyCourseList() {
+function* getMyCourseList(param) {
   try {
-    const res=yield axios.get(`${Url}/getMyCourseList/`);
+    const res=yield axios.get(`${Url}/getMyCourseList/`,{
+            params:{
+                username:param.data
+            }
+        });
     const resData=res.data
     const action=h1p3ActionCreators.setMyCourseList(resData.data)
     yield put(action)
@@ -348,7 +356,8 @@ function* deleteCourse(param) {
   try {
     const res=yield axios.get(`${Url}/deleteCourse/`,{
             params:{
-                key:param.key
+                key:param.key,
+                username:param.username
             }
         });
     const resData=res.data
@@ -383,7 +392,11 @@ function* addCourseFinish(data) {
 }
 function* getList(param) {
   try {
-    const res=yield axios.get(`${Url}/getList/`);
+    const res=yield axios.get(`${Url}/getList/`,{
+            params:{
+                username:param.data
+            }
+        });
     const resData=res.data
     const action=h1p3ActionCreators.setList(resData.data)
     yield put(action)

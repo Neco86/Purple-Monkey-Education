@@ -98,7 +98,7 @@ render(){
    
 }
 componentDidMount(){
-    this.props.getList()
+    this.props.getList(this.props.username)
 }
 componentWillUnmount(){
     this.props.clearAll()
@@ -153,8 +153,8 @@ const mapDispatchToProps=(dispatch)=>{
                     dispatch(actionCreators.changePage(0))
                     dispatch(actionCreators.getMyCourseList())
                 },
-                getList(){
-                    dispatch(actionCreators.getList())
+                getList(username){
+                    dispatch(actionCreators.getList(username))
                 },
                 clearAll(){
                     dispatch(actionCreators.clearAll())

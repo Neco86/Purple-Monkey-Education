@@ -4,17 +4,19 @@ export const changeTabPage = (index)=>({
     type:actionTypes.CHANGETABPAGE,
     data:index
 })
-export const getMyCourseList = ()=>({
-    type:actionTypes.GETCOURSELIST
+export const getMyCourseList = (data)=>({
+    type:actionTypes.GETCOURSELIST,
+    data:data
 })
 export const setMyCourseList = (data)=>({
     type:actionTypes.SETCOURSELIST,
     data:data
 })
-export const deleteCourse = (key,myCourseList)=>({
+export const deleteCourse = (key,myCourseList,username)=>({
     type:actionTypes.DELETECOURSE,
     data:myCourseList,
-    key:key
+    key:key,
+    username:username
 })
 export const deleteCourseResult = (data)=>({
     type:actionTypes.DELETECOURSERESULT,
@@ -74,8 +76,9 @@ export const changePicValue = (data)=>({
     type:actionTypes.CHANGEPICVALUE,
     data:data
 })
-export const getList = ()=>({
-    type:actionTypes.GETLIST
+export const getList = (data)=>({
+    type:actionTypes.GETLIST,
+    data:data
 })
 export const setList = (data)=>({
     type:actionTypes.SETLIST,

@@ -1,7 +1,8 @@
 import * as actionTypes from './actionTypes'
 // const { fromJS } = require('immutable')
-export const getTry = ()=>({
+export const getTry = (data)=>({
     type:actionTypes.GETTRY,
+    data:data
 })
 export const setTry = (data)=>({
     type:actionTypes.SETTRY,

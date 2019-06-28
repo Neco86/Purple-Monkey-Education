@@ -51,13 +51,13 @@ render(){
    
 }
 componentDidMount(){
-    this.props.getTry()
+    this.props.getTry(this.props.username)
 }
 }
 const mapDispatchToProps=(dispatch)=>{
             return {
-                getTry(){
-                    dispatch(actionCreators.getTry())
+                getTry(username){
+                    dispatch(actionCreators.getTry(username))
                 },
                 agree(key1,key2,list){
                     var tryList=list;
@@ -95,6 +95,7 @@ const mapDispatchToProps=(dispatch)=>{
         }
 const mapStateToProps=(state)=>{
     return {
+        username:state.getIn(['login','username']),
         tryList:state.getIn(['h1p2','tryList']),
         agreeResult:state.getIn(['h1p2','agreeResult']),
         disAgreeResult:state.getIn(['h1p2','disAgreeResult']),

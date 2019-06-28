@@ -8,7 +8,7 @@ import { actionCreators } from './store'
 
 class MyCourse extends Component{
 render(){ 
-        const { myCourseList,deleteCourse,fixCourse,seeCourse } = this.props;
+        const { myCourseList,deleteCourse,fixCourse,seeCourse,username } = this.props;
          return(
             <MyCourseWrapper>
                 {myCourseList.map((item,index)=>(
@@ -29,7 +29,7 @@ render(){
                                 <span className="iconfont fix" onClick={()=>{fixCourse(item.key)}}>&#xe609;修改课程</span>
                             </div>
                             <div className="item">
-                                <span className="iconfont delete" onClick={()=>{deleteCourse(item.key,myCourseList)}}>&#xe63c;删除课程</span>
+                                <span className="iconfont delete" onClick={()=>{deleteCourse(item.key,myCourseList,username)}}>&#xe63c;删除课程</span>
                             </div>
                         </div>
                     </CourseItemWrapper>
@@ -43,35 +43,38 @@ render(){
         )
 }
 componentDidMount(){
-    this.props.getMyCourseList()
+    this.props.getMyCourseList(this.props.username)
 }
 }
 const mapDispatchToProps=(dispatch)=>{
             return {
-                getMyCourseList(){
-                    dispatch(actionCreators.getMyCourseList())
-                },
-                deleteCourse(key,course){
-                    var myCourseList=JSON.parse(JSON.stringify(course))
-                    for (var i in myCourseList)
-                        if (myCourseList[i].key===key)
-                            {
-                                myCourseList.splice(i,1)
-                            }
-                    dispatch(actionCreators.deleteCourse(key,myCourseList))
+                getMyCourseList(username){
+                    dispatch(actionCreators.getMyCourseList(username))
                 },
                 seeCourse(key){
-                    dispatch(actionCreators.setSeeKey(key))
-                    dispatch(actionCreators.changePage(3))
+                    dispatch(actionCreators.setSeeKey(key));
+                    dispatch(actionCreators.changeITab(0));
+                    dispatch(actionCreators.changePage(3));
                 },
                 fixCourse(key){
-                    dispatch(actionCreators.setFixKey(key))
-                    dispatch(actionCreators.changePage(2))
+                    dispatch(actionCreators.setFixKey(key));
+                    dispatch(actionCreators.changePage(2));
+                },
+                deleteCourse(key,course,username){
+                    var myCourseList=JSON.parse(JSON.stringify(course));
+                    for (var i in myCourseList){
+                        if (myCourseList[i].key===key)
+                            {
+                                myCourseList.splice(i,1);
+                            }
+                    }
+                    dispatch(actionCreators.deleteCourse(key,myCourseList,username))
                 }
             }
         }
 const mapStateToProps=(state)=>{
     return {
+        username:state.getIn(['login','username']),
         myCourseList:state.getIn(['h1p3','myCourseList'])
     }
 }

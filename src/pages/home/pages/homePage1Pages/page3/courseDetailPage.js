@@ -61,6 +61,10 @@ render(){
 }
 componentDidMount(){
     this.props.getPage3CourseDetail(this.props.seeKey)//同时设置第一页
+    this.props.changeITab2(0)
+}
+componentWillUnmount(){
+    this.props.changeITab2(0)
 }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -70,6 +74,9 @@ const mapDispatchToProps=(dispatch)=>{
                 },
                 getPage3CourseDetail(key){
                     dispatch(actionCreators.getPage3CourseDetail(key))
+                },
+                changeITab2(index){
+                    dispatch(actionCreators.changeITab(index))//页面加载时显示第一个
                 },
                 changeITab(index,courseDetail){
                     dispatch(actionCreators.changeITab(index))
@@ -113,6 +120,8 @@ const mapDispatchToProps=(dispatch)=>{
                     // console.log(courseDetail,props)
                     // console.log("change"+courseDetail[index].key+seeKey)
                     dispatch(actionCreators.changeCourseDetail(courseDetail,seeKey,key2))
+                    dispatch(actionCreators.getPage3CourseDetail(seeKey))
+
                 },
                 setChangeIResult(data){
                     dispatch(actionCreators.setChangeIResult(data))
@@ -128,8 +137,8 @@ const mapDispatchToProps=(dispatch)=>{
                     newItem.long=props.iLong;
                     newItem.teacher=props.iTeacher;
                     newItem.homeWork=props.iWork;
-                    courseDetail=courseDetail.concat(newItem)
-                    console.log(courseDetail)
+                    // courseDetail=courseDetail.concat(newItem)
+                    // console.log(courseDetail)
                     dispatch(actionCreators.addCourse(courseDetail,newItem,key1))
                 },
                 setAddCourseIResult(data){
