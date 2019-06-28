@@ -16,6 +16,7 @@ import settings from './settings';
 const Url = settings.url;
 function* getRegisterUserName(param) {
   try {
+    console.log("get registerUserName")
     const res=yield axios.get(`${Url}/registerUserName/`, {
             params:{
                 username : param.data
@@ -30,6 +31,7 @@ function* getRegisterUserName(param) {
 }
 function* getGroupRegisterEduArea() {
   try {
+    console.log("get getEducationArea")
     const res=yield axios.get(`${Url}/getEducationArea/`);
     const data=res.data
     const action=groupRegisterActionCreators.setEducationArea(data.data)
@@ -40,6 +42,7 @@ function* getGroupRegisterEduArea() {
 }
 function* getGroupNameBottom(param) {
   try {
+    console.log("get groupNameBottom")
     const res=yield axios.get(`${Url}/groupNameBottom/`, {
             params:{
                 username : param.data
@@ -54,6 +57,7 @@ function* getGroupNameBottom(param) {
 }
 function* getProvince() {
   try {
+    console.log("get getProvince")
     const res=yield axios.get(`${Url}/getProvince/`);
     const data=res.data
     const action=groupRegisterActionCreators.setProvince(data)
@@ -64,6 +68,7 @@ function* getProvince() {
 }
 function* groupRegisterFinish(data) {
   try {
+    console.log("post groupRegisterFinish")
     const param=data.data;
     const params={
         username : param.username,//用户名
@@ -91,6 +96,7 @@ function* groupRegisterFinish(data) {
 }
 function* getTeacherRegisterPID(param) {
   try {
+    console.log("get teacherID")
     const res=yield axios.get(`${Url}/teacherID/`, {
             params:{
                 username : param.data
@@ -105,6 +111,7 @@ function* getTeacherRegisterPID(param) {
 }
 function* getTeacherRegisterResult(data) {
   try {
+    console.log("post teacherRegisterFinish")
     const param=data.data;
     const params={
         username : param.username,//用户名
@@ -134,6 +141,7 @@ function* getTeacherRegisterResult(data) {
 }
 function* getStudentRegisterResult(data) {
   try {
+    console.log("post studentRegisterFinish")
     const param=data.data;
     const params={
         username : param.username,//用户名
@@ -158,6 +166,7 @@ function* getStudentRegisterResult(data) {
 }
 function* getLogin(param) {
   try {
+    console.log("post login")
     const params={
         username : param.username,//用户名
         password:param.password,//密码
@@ -174,6 +183,7 @@ function* getLogin(param) {
 }
 function* getNewsList() {
   try {
+    console.log("get getNewsList")
     const res=yield axios.get(`${Url}/getNewsList/`);
     const resData=res.data
     const action=h1p1ActionCreators.setNewsList(resData.data)
@@ -184,6 +194,7 @@ function* getNewsList() {
 }
 function* getVideosList() {
   try {
+    console.log("get getVideosList")
     const res=yield axios.get(`${Url}/getVideosList/`);
     const resData=res.data
     const action=h1p1ActionCreators.setVideosList(resData.data)
@@ -194,6 +205,7 @@ function* getVideosList() {
 }
 function* getSearchList(param) {
   try {
+    console.log("get getSearchList")
     const res=yield axios.get(`${Url}/getSearchList/`,{
             params:{
                 search : param.data
@@ -208,6 +220,7 @@ function* getSearchList(param) {
 }
 function* getSearchDetail(param) {
   try {
+    console.log("get getSearchDetail")
     const res=yield axios.get(`${Url}/getSearchDetail/`,{
             params:{
                 key : param.data
@@ -222,6 +235,7 @@ function* getSearchDetail(param) {
 }
 function* getInformation(param) {
   try {
+    console.log("get getInformation")
     const res=yield axios.get(`${Url}/getInformation/`,{
             params:{
                 username : param.data
@@ -236,6 +250,7 @@ function* getInformation(param) {
 }
 function* getNewsDetail(param) {
   try {
+    console.log("get getNewsDetail")
     const res=yield axios.get(`${Url}/getNewsDetail/`,{
             params:{
                 newsKey : param.data
@@ -250,6 +265,7 @@ function* getNewsDetail(param) {
 }
 function* postComment(param) {
   try {
+    console.log("post postComment")
     const res=yield axios.post(`${Url}/postComment/`,{
             params:{
                 data : param.data,
@@ -268,6 +284,7 @@ function* postComment(param) {
 }
 function* getUserImg(param) {
   try {
+    console.log("get getUserImg")
     const res=yield axios.get(`${Url}/getUserImg/`,{
             params:{
                 username:param.data
@@ -282,6 +299,7 @@ function* getUserImg(param) {
 }
 function* getVideosDetail(param) {
   try {
+    console.log("get getVideosDetail")
     const res=yield axios.get(`${Url}/getVideosDetail/`,{
             params:{
                 videosKey:param.data
@@ -296,6 +314,7 @@ function* getVideosDetail(param) {
 }
 function* getTry(param) {
   try {
+    console.log("get getTry")
     const res=yield axios.get(`${Url}/getTry/`,{
             params:{
                 username:param.data
@@ -310,6 +329,7 @@ function* getTry(param) {
 }
 function* agree(param) {
   try {
+    console.log("post agree")
     const res=yield axios.post(`${Url}/agree/`,{
             params:{
                 key1:param.key1,
@@ -325,6 +345,7 @@ function* agree(param) {
 }
 function* disAgree(param) {
   try {
+    console.log("post disAgree")
     const res=yield axios.post(`${Url}/disAgree/`,{
             params:{
                 key1:param.key1,
@@ -340,6 +361,7 @@ function* disAgree(param) {
 }
 function* getMyCourseList(param) {
   try {
+    console.log("get getMyCourseList")
     const res=yield axios.get(`${Url}/getMyCourseList/`,{
             params:{
                 username:param.data
@@ -354,6 +376,7 @@ function* getMyCourseList(param) {
 }
 function* deleteCourse(param) {
   try {
+    console.log("get deleteCourse")
     const res=yield axios.get(`${Url}/deleteCourse/`,{
             params:{
                 key:param.key,
@@ -369,6 +392,7 @@ function* deleteCourse(param) {
 }
 function* addCourseFinish(data) {
   try {
+    console.log("post addCourseFinish")
     var param=data.data;
     const res=yield axios.post(`${Url}/addCourseFinish/`,{
             params:{
@@ -392,6 +416,7 @@ function* addCourseFinish(data) {
 }
 function* getList(param) {
   try {
+    console.log("get getList")
     const res=yield axios.get(`${Url}/getList/`,{
             params:{
                 username:param.data
@@ -406,6 +431,7 @@ function* getList(param) {
 }
 function* getFixCourse(param) {
   try {
+    console.log("get getFixCourse")
     const res=yield axios.get(`${Url}/getFixCourse/`,{
             params:{
                 key:param.data
@@ -420,7 +446,7 @@ function* getFixCourse(param) {
 }
 function* fixCourseFinish(data) {
   try {
-    // console.log(data.data);
+    console.log("post fixCourseFinish");
     var param=data.data;
     const res=yield axios.post(`${Url}/fixCourseFinish/`,{
             params:{
@@ -445,6 +471,7 @@ function* fixCourseFinish(data) {
 }
 function* getPage3CourseDetail(param) {
   try {
+    console.log("post getPage3CourseDetail")
     const res=yield axios.post(`${Url}/getPage3CourseDetail/`,{
             params:{
                 key:param.data
@@ -459,6 +486,7 @@ function* getPage3CourseDetail(param) {
 }
 function* deleteCourseDetail(param) {
   try {
+    console.log("post deleteCourseDetail")
     const res=yield axios.post(`${Url}/deleteCourseDetail/`,{
             params:{
                 key1:param.key1,
@@ -474,6 +502,7 @@ function* deleteCourseDetail(param) {
 }
 function* changeCourseDetail(param) {
   try {
+    console.log("post changeCourseDetail")
     const res=yield axios.post(`${Url}/changeCourseDetail/`,{
             params:{
                 data:param.data,//修改之后的所有课程的内容
@@ -490,6 +519,7 @@ function* changeCourseDetail(param) {
 }
 function* addCourse(param) {
   try {
+    console.log("post addCourse")
     const res=yield axios.post(`${Url}/addCourse/`,{
             params:{
                 data:param.data,//新增的小课
@@ -505,6 +535,7 @@ function* addCourse(param) {
 }
 function* getCourseTableList(param) {
   try {
+    console.log("get getCourseTableList")
     const res=yield axios.get(`${Url}/getCourseTableList/`,{
             params:{
                 username:param.data
@@ -519,6 +550,7 @@ function* getCourseTableList(param) {
 }
 function* getTableList(param) {
   try {
+    console.log("get getTableList")
     const res=yield axios.get(`${Url}/getTableList/`,{
             params:{
                 username:param.data
@@ -533,6 +565,7 @@ function* getTableList(param) {
 }
 function* getUserInfo(param) {
   try {
+    console.log("get getUserInfo")
     const res=yield axios.get(`${Url}/getUserInfo/`,{
             params:{
                 username:param.data
@@ -547,6 +580,7 @@ function* getUserInfo(param) {
 }
 function* addNewPhoto(param) {
   try {
+    console.log("post addNewPhoto")
     const res=yield axios.post(`${Url}/addNewPhoto/`,{
             params:{
                 username:param.username,
@@ -562,6 +596,7 @@ function* addNewPhoto(param) {
 }
 function* getMoreInfo(param) {
   try {
+    console.log("get getMoreInfo")
     const res=yield axios.get(`${Url}/getMoreInfo/`,{
             params:{
                 username:param.data
@@ -576,19 +611,17 @@ function* getMoreInfo(param) {
 }
 function* editGroupFnish(data) {
   try {
+    console.log("post editGroupFnish")
     const param=data.data;
     const params={
         username : param.username,//用户名
         groupName:param.groupName,//性名
-        sex:param.sex,//性别
-        age:param.age,//年龄
-        personID:param.personID,//身份证号
         chooseEduArea:param.chooseEduArea,//从教领域
-        teacheAge:param.teacheAge,//从教年限
         ageL:param.ageL,//适龄下限
         ageH:param.ageH,//适龄上线
-        tel:param.tel//联系方式
-
+        tel:param.tel,//联系方式
+        place:param.place,//店面地址
+        detailPlace:param.detailPlace//详细地址
     }
     const res=yield axios.post(`${Url}/editGroupFnish/`, {
             params:params
@@ -602,6 +635,7 @@ function* editGroupFnish(data) {
 }
 function* eidtTeacherFinish(data) {
   try {
+    console.log("post eidtTeacherFinish")
     const param=data.data;
     const params={
         username : param.username,//用户名
@@ -628,6 +662,7 @@ function* eidtTeacherFinish(data) {
 }
 function* getPubList(param) {
   try {
+    console.log("get getPubList")
     const res=yield axios.get(`${Url}/getPubList/`,{
             params:{
                 username:param.data
@@ -642,6 +677,7 @@ function* getPubList(param) {
 }
 function* deleteItem(param) {
   try {
+    console.log("get deleteItem")
     const res=yield axios.get(`${Url}/deleteItem/`,{
             params:{
                 username:param.username,
@@ -658,6 +694,7 @@ function* deleteItem(param) {
 }
 function* getPubDetail(param) {
   try {
+    console.log("get getPubDetail")
     const res=yield axios.get(`${Url}/getPubDetail/`,{
             params:{
                 username:param.username,
@@ -673,6 +710,7 @@ function* getPubDetail(param) {
 }
 function* getPubTypeList(param) {
   try {
+    console.log("get getPubTypeList")
     const res=yield axios.get(`${Url}/getPubTypeList/`);
     const resData=res.data
     const action=h1p4ActionCreators.setPubTypeList(resData.data)
@@ -683,6 +721,7 @@ function* getPubTypeList(param) {
 }
 function* editPubFinish(p) {
   try {
+    console.log("post editPubFinish")
     const param=p.data;
     const res=yield axios.post(`${Url}/editPubFinish/`,{
             params:{
@@ -702,6 +741,7 @@ function* editPubFinish(p) {
 }
 function* getMyComment(param) {
   try {
+    console.log("get getMyComment")
     const res=yield axios.get(`${Url}/getMyComment/`,{
             params:{
                 username:param.data
@@ -716,6 +756,7 @@ function* getMyComment(param) {
 }
 function* deleteComment(param) {
   try {
+    console.log("post deleteComment")
     const res=yield axios.post(`${Url}/deleteComment/`,{
             params:{
                 username:param.username,
